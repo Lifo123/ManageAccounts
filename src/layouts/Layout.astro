@@ -1,0 +1,46 @@
+---
+import '../css/Flifo.css'
+import '../css/GlobalStyles.css'
+
+import BaseHead from './BaseHead.astro';
+
+const { title = 'PromedyCalculator', description = 'Calculate Promedy' } = Astro.props;
+
+
+---
+
+<html lang="en">
+    <head>
+        <title>{title}</title>
+        <meta name="Author" content="Lifo123" />
+        <meta name="description" content={description}>
+
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width" />
+        <meta name="google-site-verification" content="QAGlLlv_gtS49AYu1kBdgNivwvrHyZ8bMfWGo5DgfhY" />
+        <!--                                                                                                                                                   
+            |***********************************************************************************|
+            |                                                                                   |
+            |  ██       ██   ███████    ████████         ████████     ████████    ███      ███  |
+            |  ██       ██   ██        ██      ██       ██      ██   ██      ██   ████    ████  |
+            |  ██       ██   ███████   ██      ██       ██           ██      ██   ██ ██  ██ ██  |
+            |  ██       ██   ██        ██      ██       ██      ██   ██      ██   ██  ████  ██  |
+            |  ███████  ██   ██         ████████   ██    ████████     ████████    ██        ██  |
+            |                                                                                   |
+            |***********************************************************************************|
+        -->
+
+        <!--Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
+        />
+        <BaseHead title={title} description={description}/>
+    </head>
+
+    <body>
+        <slot />
+    </body>
+</html>

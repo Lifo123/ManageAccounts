@@ -1,0 +1,90 @@
+
+
+.promotion-adds{
+    width: 100%;
+    justify-content: center;
+    margin-top: 20px;
+    gap: 30px;
+}
+
+.project-card {
+    background-color: var(--p-bg);
+    border: solid 1px #c0c0c0;
+    height: 300px;
+    width: 340px;
+}
+
+.redirect-link{
+    height: 30px;
+    width: 30px;
+}
+.redirect-link svg{
+    stroke: #FFF;
+}
+
+
+.prom-img{
+    object-fit: cover;
+    border-bottom: solid 1px #c0c0c0;
+    width: 100%;
+}
+
+.prom-info{
+    padding: 12px 24px;
+}
+.prom-info h3{
+    color: #212121;
+    font-size: 19px;
+    font-weight: 600;
+}
+.prom-info > div > p{
+    font-size: 15px;
+    font-weight: 600;
+}
+.prom-info .state-green{
+    color: #0aad0a;
+}
+.prom-info .state-yellow{
+    color: #efa802;
+}
+.prom-btn{
+    margin-top: 8px;
+    background-color: #000;
+    padding: 10px 20px;
+}
+.prom-btn p{
+    color: #FFF;
+}
+
+
+/*Tags*/
+.prom-tags{
+    margin-top: 6px;
+}
+.prom-tag-item {
+    font-size: 12.5px !important;
+    padding: 4px 12px;
+    font-weight: 600;
+    color: white;
+    pointer-events: none;
+}
+
+.prom-tag-item[data-type='Javascript'] {
+    background-color: #D4BF11;
+    color: #000;
+}
+
+.prom-tag-item[data-type='React'] {
+    background-color: #006EBE;
+}
+
+.prom-tag-item[data-type='Sass'] {
+    background-color: #B61B5C;
+}
+.prom-tag-item[data-type='Astro'] {
+    background-color: #181818f2;
+}
+
+.prom-tag-item[data-type='Css'] {
+    background-color: #10afff9d;
+}

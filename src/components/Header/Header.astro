@@ -1,0 +1,21 @@
+---
+import './Header.css';
+
+const app = Astro.props.app ?? false;
+
+---
+
+<header class="f-row f-justify-between f-align-center">
+  <h1><a href="/PromedyCalculator">PromedyCal</a></h1>
+  {app ? (
+    <span class='h-burger d-flex f-center pointer'>
+      <svg class='no-select' xmlns="http://www.w3.org/2000/svg" height={46} viewBox="0 0 24 24" fill="none">
+        <path d="M5 12H20" stroke="#000000" stroke-width="2" stroke-linecap="round" />
+        <path d="M5 17H20" stroke="#000000" stroke-width="2" stroke-linecap="round" />
+        <path d="M5 7H20" stroke="#000000" stroke-width="2" stroke-linecap="round" />
+      </svg>
+    </span>
+  ) : (
+    <a href="/PromedyCalculator/App" class='pc-btn-black inner-empty br-6' style={{ padding: '11px 24px' }}>Get Started</a>
+  )}
+</header>

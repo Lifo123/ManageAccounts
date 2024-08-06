@@ -1,0 +1,28 @@
+---
+
+const { title, description } = Astro.props;
+const site = new URL(Astro.site);
+const path = Astro.url.pathname;
+const url = new URL(path, site).href;
+
+---
+
+<!-- OpenGraph Tags -->
+<meta property="og:title" content={title}>
+<meta property="og:type" content="website">
+<meta property="og:url" content={url}>
+<meta property="og:locale" content="en">
+<meta property="og:description" content={description}>
+<meta property="og:site_name" content="PromedyCalculator">
+<meta property="og:image" content="https://pbs.twimg.com/media/GT8DksiWsAEknhk?format=jpg&name=large">
+<meta property="og:image:alt" content="Promedy Calculator Website">
+
+<!-- Twitter Tags -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@PromedyCalculator">
+<meta name="twitter:creator" content="@Lifo123">
+<meta name="twitter:title" content={title}>
+<meta name="twitter:url" content={url}>
+<meta name="twitter:description" content={description}>
+<meta name="twitter:image" content="https://pbs.twimg.com/media/GT8DksiWsAEknhk?format=jpg&name=large"></meta>
+<meta name="twitter:image:alt" content="Promedy Calculator Website">

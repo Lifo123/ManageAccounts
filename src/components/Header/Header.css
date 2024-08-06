@@ -1,0 +1,46 @@
+header {
+    border-bottom: solid 1px #c7c7c7;
+    height: 70px;
+    width: 100%;
+    padding-inline: 60px;
+}
+
+header h1 a {
+    height: 100%;
+    width: 100%;
+    font-size: 24px;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+header ul {
+    list-style-type: none;
+    font-size: 18px;
+    font-weight: 600;
+    gap: 22px;
+}
+
+header ul li {
+    border-bottom: solid 2px transparent;
+    padding: 13px 10px;
+    cursor: pointer;
+    transform: translateY(0px);
+    transition:
+        transform 0.2s,
+        border 0.2s;
+}
+
+header ul li a {
+    text-decoration: none;
+    padding: 13px 10px;
+}
+
+header ul li:hover {
+    border-bottom: solid 2px #000;
+    transform: translateY(-2px);
+}
+
+header .h-burger{
+    height: 50px;
+    width: 50px;
+}
