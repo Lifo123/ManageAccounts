@@ -1,1 +1,0 @@
-import{r as a}from"./index.DhYZZe0J.js";function i(e,t,r){let n=new Set([...t,void 0]);return e.listen((s,l,u)=>{n.has(u)&&r(s,l,u)})}function S(e,t={}){let r=a.useCallback(s=>t.keys?i(e,t.keys,s):e.listen(s),[t.keys,e]),n=e.get.bind(e);return a.useSyncExternalStore(r,n,n)}const y=()=>JSON.parse(localStorage.getItem("Accounts"));export{y as g,S as u};
