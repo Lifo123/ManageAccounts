@@ -8,6 +8,7 @@ Build/
 # dependencies
 node_modules/
 scss/
+Json/
 
 # logs
 npm-debug.log*

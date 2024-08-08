@@ -1,0 +1,90 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+//JSX
+import InputSearch from "../Apps/Dashboard/InputSearch/InputSearch";
+import AsideContainer from "../Apps/Dashboard/Aside/AsideContainer";
+import Main from "../Apps/Dashboard/Main/Main";
+---
+
+<Layout title="Dashboard" description="desc">
+    <div class="containter d-grid p-2 g-2 relative h-100 o-hidden">
+        <aside class="bg-bento br-8 f-col">
+            <section class="as-head f-col h-max">
+                <div class="f-row f-justify-between f-align-center h-max">
+                    <div class="f-row f-center g-4">
+                        <span class="d-flex f-center">
+                            <svg viewBox="0 0 24 24" fill="none"
+                                ><g>
+                                    <path
+                                        d="M8 6.00067L21 6.00139M8 12.0007L21 12.0015M8 18.0007L21 18.0015M3.5 6H3.51M3.5 12H3.51M3.5 18H3.51M4 6C4 6.27614 3.77614 6.5 3.5 6.5C3.22386 6.5 3 6.27614 3 6C3 5.72386 3.22386 5.5 3.5 5.5C3.77614 5.5 4 5.72386 4 6ZM4 12C4 12.2761 3.77614 12.5 3.5 12.5C3.22386 12.5 3 12.2761 3 12C3 11.7239 3.22386 11.5 3.5 11.5C3.77614 11.5 4 11.7239 4 12ZM4 18C4 18.2761 3.77614 18.5 3.5 18.5C3.22386 18.5 3 18.2761 3 18C3 17.7239 3.22386 17.5 3.5 17.5C3.77614 17.5 4 17.7239 4 18Z"
+                                        stroke-width="2"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"></path>
+                                </g></svg
+                            >
+                        </span>
+                        <h3>Your Accounts</h3>
+                    </div>
+                    <span class="plus d-flex f-center br-max pointer">
+                        <svg height="18px" viewBox="0 0 24 24" fill="none"
+                            ><g>
+                                <path
+                                    d="M4 12H20M12 4V20"
+                                    stroke-width="2"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"></path>
+                            </g></svg
+                        >
+                    </span>
+                </div>
+                <InputSearch client:idle />
+            </section>
+            <AsideContainer slot="aside-list" client:visible />
+        </aside>
+        <main class="bg-bento f-col br-8 w-auto">
+            <Main slot="main-content" client:visible />
+        </main>
+    </div>
+</Layout>
+
+<style>
+    .containter {
+        height: 100vh;
+        grid-template-columns: 360px minmax(380px, auto);
+    }
+    aside {
+        height: calc(100vh - 1rem);
+        width: 360px;
+        padding-inline: 18px;
+        padding-bottom: 44px;
+    }
+    main {
+        flex: 1;
+        overflow: auto;
+    }
+    h3 {
+        color: var(--f-tittle);
+    }
+    span {
+        height: 28px;
+        width: 28px;
+    }
+    span svg {
+        stroke: var(--f-tittle);
+    }
+    span.plus svg {
+        stroke: var(--f-text);
+    }
+    span.plus:hover {
+        background-color: var(--f-bg-bento-intense);
+    }
+    span.plus:hover svg {
+        stroke: var(--f-tittle);
+    }
+    .as-head {
+        border-bottom: solid 1px var(--a-border);
+        padding: 22px 5px 30px 5px;
+        gap: 22px;
+    }
+</style>

@@ -1,0 +1,19 @@
+
+
+.aside-cont{
+    margin-top: 30px;
+    padding-inline: 6px;
+}
+
+.as-list{
+    background-color: var(--f-bg-bento);
+    border: solid 1px var(--a-border);
+    transition: background-color 0.1s;
+}
+.as-list:hover{
+    background-color: var(--f-bg-bento-intense);
+}
+
+.aside-cont:hover::-webkit-scrollbar-thumb {
+    background-color: var(--f-placeholder);
+}

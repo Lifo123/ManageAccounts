@@ -1,6 +1,6 @@
 {
-  "homepage": "https://Lifo123.github.io/",
-  "name": "astro-template",
+  "homepage": "https://Lifo123.github.io/ManageAccounts",
+  "name": "manage-accounts",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
@@ -21,6 +21,7 @@
     "nanostores": "^0.10.3",
     "pnpm": "^9.6.0",
     "react": "^18.3.1",
+    "react-copy-to-clipboard": "^5.1.0",
     "react-dom": "^18.3.1"
   },
   "devDependencies": {

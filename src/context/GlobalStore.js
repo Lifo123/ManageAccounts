@@ -1,3 +1,4 @@
 import { atom } from "nanostores";
 
-export const ExampleStore = atom(20);
+export const DarkModeStore = atom(true);
+export const UserStore = atom([]);
