@@ -7,10 +7,10 @@ export default function AccountCard({ data }) {
 
 
     return (
-        <div className='card-div w-90 f-col g-1 mx-auto'>
-            <span className='f-row f-justify-between f-align-end px-1'>
+        <div className='card-div w-90 f-col g-2 mx-auto'>
+            <span className='f-row f-justify-between f-align-end pl-1 pr-2'>
                 <h3 className='m-0'>{data.user}</h3>
-                <p className='m-0 fs-1'>Edit</p>
+                <p className='m-0 fs-1 pointer'>Edit</p>
             </span>
             <div className='card-account f-col br-10'>
                 <p className='m-0'>

@@ -1,0 +1,13 @@
+span.plus {
+    height: 28px;
+    width: 28px;
+}
+span.plus svg {
+    stroke: var(--f-text);
+}
+span.plus:hover {
+    background-color: var(--f-bg-bento-intense);
+}
+span.plus:hover svg {
+    stroke: var(--f-tittle);
+}

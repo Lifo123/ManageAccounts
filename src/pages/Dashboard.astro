@@ -2,9 +2,11 @@
 import Layout from "../layouts/Layout.astro";
 
 //JSX
-import InputSearch from "../Apps/Dashboard/InputSearch/InputSearch";
+import InputSearch from "../Apps/Dashboard/Aside/InputSearch/InputSearch";
 import AsideContainer from "../Apps/Dashboard/Aside/AsideContainer";
 import Main from "../Apps/Dashboard/Main/Main";
+import AddPlatform from "../Apps/Dashboard/Aside/AddPlatform/AddPlatform";
+
 ---
 
 <Layout title="Dashboard" description="desc">
@@ -26,17 +28,7 @@ import Main from "../Apps/Dashboard/Main/Main";
                         </span>
                         <h3>Your Accounts</h3>
                     </div>
-                    <span class="plus d-flex f-center br-max pointer">
-                        <svg height="18px" viewBox="0 0 24 24" fill="none"
-                            ><g>
-                                <path
-                                    d="M4 12H20M12 4V20"
-                                    stroke-width="2"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"></path>
-                            </g></svg
-                        >
-                    </span>
+                    <AddPlatform client:idle />
                 </div>
                 <InputSearch client:idle />
             </section>
@@ -71,15 +63,6 @@ import Main from "../Apps/Dashboard/Main/Main";
         width: 28px;
     }
     span svg {
-        stroke: var(--f-tittle);
-    }
-    span.plus svg {
-        stroke: var(--f-text);
-    }
-    span.plus:hover {
-        background-color: var(--f-bg-bento-intense);
-    }
-    span.plus:hover svg {
         stroke: var(--f-tittle);
     }
     .as-head {

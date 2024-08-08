@@ -5,8 +5,11 @@
 .card-account{
     border: solid 1px var(--a-border);
     background-color: var(--f-bg-bento);
-    padding: 20px 28px;
-    gap: 12px;
+    padding: 22px 28px;
+    gap: 14px;
+}
+.card-account:hover{
+    border: solid 1px var(--a-border-intente);
 }
 .card-account strong{
     color: var(--f-tittle);
