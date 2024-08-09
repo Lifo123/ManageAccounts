@@ -9,7 +9,7 @@ export default function AsideContainer() {
     const Accounts = useStore(AccountListStore);
 
     return (
-        <ul className='aside-cont f-col g-3 oy-auto relative'>
+        <ul className='aside-cont f-col g-2 o-hidden relative'>
             {
                 Accounts && Accounts.map((item, index) => (
                     <AsideList key={index} data={item} />

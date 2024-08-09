@@ -1,10 +1,14 @@
 import './InputSearch.css'
 import useTimer from '../../Hooks/useTimer';
 import { SortArray } from '@utilities/SortArray';
-import { AccountListStore } from '../../Apps/context/Dashboard';
+import { AccountListStore, CurrentPlatformStore } from '../../Apps/context/Dashboard';
 import { getAccounts } from '@services/manageData';
+import { useStore } from '@nanostores/react';
 
 export default function InputSearch() {
+    //GlobalStates
+    const CurrentPlatform = useStore(CurrentPlatformStore)
+
     //Hooks
     const { CountDown } = useTimer(2);
 
@@ -12,8 +16,9 @@ export default function InputSearch() {
     const HandleSort = async (e) => {
         const String = e.target.value;
         const Accounts = getAccounts();
+        const currentID = CurrentPlatform.id;
 
-        const SortedAccounts = await CountDown(() => SortArray(Accounts, String));
+        const SortedAccounts = await CountDown(() => SortArray(Accounts, String, currentID));
         AccountListStore.set(SortedAccounts);
     }
 

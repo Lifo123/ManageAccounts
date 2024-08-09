@@ -4,7 +4,7 @@ import { CurrentPlatformStore } from "../../Apps/context/Dashboard"
 import SocialIcons from '@Components/Icons/SocialIcons';
 
 
-export default function HeaderMain({ redirect }) {
+export default function HeaderMain({ redirect,  }) {
     //GlobalStates
     const CurrentPlatform = useStore(CurrentPlatformStore)
 
@@ -12,7 +12,7 @@ export default function HeaderMain({ redirect }) {
         <section className="main-head f-row f-justify-between f-align-center">
             <div className="f-row f-center g-6">
                 <span>
-                    <SocialIcons id={CurrentPlatform.Platform} />
+                    <SocialIcons id={CurrentPlatform.Platform } />
                 </span>
                 <h1 className='fs-4'>{CurrentPlatform.Platform || 'Empty'}</h1>
             </div>

@@ -13,9 +13,7 @@ export default function AddPlatform() {
         const Accounts = AccountListStore.get()
         const id = MaxIndex(Accounts) + 1;
 
-        AccountListStore.set(saveAccounts([...Accounts,
-        { Platform: `New Platform ${id}`, Usage: 0, id: id, Accounts: [] }
-        ]))
+        AccountListStore.set(saveAccounts([{ Platform: `New Platform ${id}`, Usage: 0, id: id, Accounts: [] }, ...Accounts]))
 
         const updatedAccounts = getAccounts();
         CurrentPlatformStore.set({ ...updatedAccounts[updatedAccounts.length - 1], shouldClearInput: true });
