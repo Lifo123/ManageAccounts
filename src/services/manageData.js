@@ -1,5 +1,5 @@
 export const getAccounts = () => {
-   const Accounts = JSON.parse(localStorage.getItem('Accounts') || '[{"Platform":"Platform","Usage":0,"Accounts":[]}]');
+   const Accounts = JSON.parse(localStorage.getItem('Accounts') || '[{"Platform":"Platform","Usage":0, "id": 1, "Accounts":[]}]');
    return Accounts;
 }
 
@@ -13,3 +13,9 @@ export const updateUsage = (id) => {
 
 }
 
+export const deleteAccount = (id) => {
+   const Accounts = getAccounts();
+   const FilteredAccounts = Accounts.filter(account => account.id !== id);
+
+   return saveAccounts(FilteredAccounts);
+}

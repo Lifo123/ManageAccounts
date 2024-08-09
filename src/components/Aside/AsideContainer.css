@@ -2,16 +2,21 @@
 
 .aside-cont{
     margin-top: 30px;
-    padding-inline: 6px;
+    padding: 6px;
 }
 
 .as-list{
     background-color: var(--f-bg-bento);
-    border: solid 1px var(--a-border);
+    outline: solid 1px var(--a-border);
     transition: background-color 0.1s;
+
+}
+.as-list.active{
+    outline: solid 2px #0674c3c9;
+    background-color: #0082df28;
 }
 .as-list:hover{
-    background-color: var(--f-bg-bento-intense);
+    background-color: var(--a-border);
 }
 
 .aside-cont:hover::-webkit-scrollbar-thumb {

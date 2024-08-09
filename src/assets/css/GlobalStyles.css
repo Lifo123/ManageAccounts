@@ -4,12 +4,12 @@
 
 :root{
     --a-border: #fff;
-    --a-border-intente: #363636;
+    --a-border-intense: #363636;
 }
 
 .DarkMode{
     --a-border: #363636;
-    --a-border-intente: #474747;
+    --a-border-intense: #474747;
 }
 
 body{

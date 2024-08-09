@@ -14,7 +14,7 @@ export default function HeaderMain({ redirect }) {
                 <span>
                     <SocialIcons id={CurrentPlatform.Platform} />
                 </span>
-                <h1 className='fs-4'>{CurrentPlatform.Platform}</h1>
+                <h1 className='fs-4'>{CurrentPlatform.Platform || 'Empty'}</h1>
             </div>
             <div className="f-row f-center g-5">
                 <span className="add-btn btn fw-800 br-max pointer"> Add </span>

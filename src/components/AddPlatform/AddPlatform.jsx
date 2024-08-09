@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { getAccounts, saveAccounts } from '../../services/manageData'
 import { AccountListStore, CurrentPlatformStore } from '../../Apps/context/Dashboard'
 import './AddPlatform.css'
+import { MaxIndex } from '@utilities/FindMaxIndex'
 
 export default function AddPlatform() {
     //States
@@ -10,10 +11,14 @@ export default function AddPlatform() {
     //Functions
     const HandleAddPlatform = () => {
         const Accounts = AccountListStore.get()
+        const id = MaxIndex(Accounts) + 1;
 
         AccountListStore.set(saveAccounts([...Accounts,
-        { Platform: `New Platform ${Accounts.length + 1}`, Usage: 0, Accounts: [] }
+        { Platform: `New Platform ${id}`, Usage: 0, id: id, Accounts: [] }
         ]))
+
+        const updatedAccounts = getAccounts();
+        CurrentPlatformStore.set({ ...updatedAccounts[updatedAccounts.length - 1], shouldClearInput: true });
 
     }
 
@@ -21,7 +26,6 @@ export default function AddPlatform() {
         setIsMounted(true)
         if (isMounted) {
             const storedAccounts = getAccounts()
-
             AccountListStore.set(storedAccounts)
             CurrentPlatformStore.set(storedAccounts[0])
         }
