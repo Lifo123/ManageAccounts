@@ -10,7 +10,11 @@ export const saveAccounts = (UpdatedAccounts) => {
 
 
 export const updateUsage = (id) => {
-
+   const Accounts = getAccounts();
+   const Acc = Accounts.map(account =>
+      account.id === id ? { ...account, Usage: account.Usage + 1 } : account
+   );
+   return saveAccounts(Acc);
 }
 
 export const deleteAccount = (id) => {

@@ -1,20 +1,22 @@
 import { useStore } from "@nanostores/react"
-import { CurrentPlatformStore } from "../../Apps/context/Dashboard"
+import { AccountListStore, CurrentPlatformStore } from "../../Apps/context/Dashboard"
 import { useEffect, useRef } from "react";
+import { updateUsage } from "@services/manageData";
 
 
 
 export default function AsideList({ data }) {
     //GlobalStates
     const CurrentPlatform = useStore(CurrentPlatformStore)
+    const AccountList = useStore(AccountListStore)
 
     //Refs
     const ListRef = useRef(null);
 
     //Functions
     const HandleSelectPlatform = (e) => {
-        CurrentPlatformStore.set({ ...data, Usage: CurrentPlatform.Usage + 1, shouldClearInput: true, active: true });
-
+        updateUsage(data.id)
+        CurrentPlatformStore.set({ ...data, shouldClearInput: true, active: true });
     }
 
 

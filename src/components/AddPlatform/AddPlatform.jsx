@@ -3,6 +3,7 @@ import { getAccounts, saveAccounts } from '../../services/manageData'
 import { AccountListStore, CurrentPlatformStore } from '../../Apps/context/Dashboard'
 import './AddPlatform.css'
 import { MaxIndex } from '@utilities/FindMaxIndex'
+import { SortByUsage } from '@utilities/SortArray'
 
 export default function AddPlatform() {
     //States
@@ -16,7 +17,7 @@ export default function AddPlatform() {
         AccountListStore.set(saveAccounts([{ Platform: `New Platform ${id}`, Usage: 0, id: id, Accounts: [] }, ...Accounts]))
 
         const updatedAccounts = getAccounts();
-        CurrentPlatformStore.set({ ...updatedAccounts[updatedAccounts.length - 1], shouldClearInput: true });
+        CurrentPlatformStore.set({ ...updatedAccounts[0], shouldClearInput: true });
 
     }
 
@@ -24,8 +25,10 @@ export default function AddPlatform() {
         setIsMounted(true)
         if (isMounted) {
             const storedAccounts = getAccounts()
-            AccountListStore.set(storedAccounts)
-            CurrentPlatformStore.set(storedAccounts[0])
+            const sortedAccountsByUsage = SortByUsage(storedAccounts);
+
+            AccountListStore.set(sortedAccountsByUsage)
+            CurrentPlatformStore.set(sortedAccountsByUsage[0])
         }
     }, [isMounted])
 
