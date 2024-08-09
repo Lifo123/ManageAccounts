@@ -1,9 +1,25 @@
 import './InputSearch.css'
+import useTimer from '../../../../Hooks/useTimer';
+import { SortArray } from '../../../../utilities/SortArray';
+import { AccountListStore } from '../../context/Dashboard';
+import { getAccounts } from '../../../../services/manageData';
 
 export default function InputSearch() {
+    //Hooks
+    const { CountDown } = useTimer(2);
+
+    //Functions
+    const HandleSort = async (e) => {
+        const String = e.target.value;
+        const Accounts = getAccounts();
+
+        const SortedAccounts = await CountDown(() => SortArray(Accounts, String));
+        AccountListStore.set(SortedAccounts);
+    }
+
     return (
         <div className="f-row f-center w-100 relative">
-            <input className="input-fill br-6 w-100" type="text" placeholder="Search..." />
+            <input className="input-fill br-6 w-100" type="text" placeholder="Search..." onChange={HandleSort} />
             <span className="search-icon d-flex f-center absolute no-select">
                 <svg viewBox="0 0 24 24" fill="none">
                     <g>

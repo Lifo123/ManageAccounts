@@ -1,0 +1,31 @@
+.main-head{
+    padding: 20px 36px;
+}
+.main-head h1{
+    color: var(--f-tittle);
+}
+
+.add-btn{
+    background-color: var(--f-text);
+    color: var(--f-bg);
+    padding: 6px 26px;
+}
+.add-btn:hover{
+    background-color: var(--f-tittle);
+}
+
+.main-head-icon{
+    height: 38px;
+    width: 38px;
+}
+.main-head-icon:hover{
+    background-color: var(--f-bg-bento-intense);
+}
+.main-head-icon svg{
+    fill: var(--f-text);
+    stroke: var(--f-text);
+}
+.main-head-icon:hover svg{
+    fill: var(--f-tittle);
+    stroke: var(--f-tittle);
+}

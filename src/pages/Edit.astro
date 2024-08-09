@@ -2,13 +2,11 @@
 import Layout from "../layouts/Layout.astro";
 import ManageLayout from "../layouts/ManageLayout.astro";
 
-import Main from "../Apps/Dashboard/Main/Main";
-
 
 ---
 
 <Layout title="Dashboard" description="desc">
-    <ManageLayout redirect="/ManageAccounts/Edit">
-        <Main client:visible/>
+    <ManageLayout redirect="/ManageAccounts/Dashboard">
+       edit pe
     </ManageLayout>
 </Layout>

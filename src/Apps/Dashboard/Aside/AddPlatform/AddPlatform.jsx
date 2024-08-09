@@ -1,3 +1,4 @@
+import { saveAccounts } from '../../../../services/manageData'
 import { AccountListStore } from '../../context/Dashboard'
 import './AddPlatform.css'
 
@@ -7,10 +8,13 @@ export default function AddPlatform() {
     const HandleAddPlatform = () => {
         const Accounts = AccountListStore.get()
 
-        AccountListStore.set([...Accounts,
+        AccountListStore.set(saveAccounts([...Accounts,
         { Platform: `New Platform ${Accounts.length + 1}`, Usage: 0, Accounts: [] }
-        ])
+        ]))
+
     }
+
+
 
     return (
         <span className="plus d-flex f-center br-max pointer" onClick={HandleAddPlatform}>

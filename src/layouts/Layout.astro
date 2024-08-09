@@ -1,14 +1,12 @@
 ---
 import "../assets/css/GlobalStyles.css";
-
+import ViewTransitions from "astro/components/ViewTransitions.astro";
 import BaseHead from "./BaseHead.astro";
-import Header from "../components/Header/Header.astro";
-import InputSearch from "../Apps/Dashboard/Aside/InputSearch/InputSearch";
 
 import { DarkModeStore } from "../context/GlobalStore";
 
 const isDark = DarkModeStore.get();
-const { title = "PromedyCalculator", description = "Calculate Promedy" } =
+const { title = "Manage Accounts", description = "" } =
     Astro.props;
 ---
 
@@ -39,6 +37,7 @@ const { title = "PromedyCalculator", description = "Calculate Promedy" } =
             href="https://fonts.googleapis.com/css2?family=Miriam+Libre:wght@400;700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
             rel="stylesheet"
         />
+        <ViewTransitions/>
         <BaseHead title={title} description={description} />
     </head>
 
