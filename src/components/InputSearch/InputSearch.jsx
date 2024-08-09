@@ -1,8 +1,8 @@
 import './InputSearch.css'
-import useTimer from '../../../../Hooks/useTimer';
-import { SortArray } from '../../../../utilities/SortArray';
-import { AccountListStore } from '../../context/Dashboard';
-import { getAccounts } from '../../../../services/manageData';
+import useTimer from '../../Hooks/useTimer';
+import { SortArray } from '@utilities/SortArray';
+import { AccountListStore } from '../../Apps/context/Dashboard';
+import { getAccounts } from '@services/manageData';
 
 export default function InputSearch() {
     //Hooks

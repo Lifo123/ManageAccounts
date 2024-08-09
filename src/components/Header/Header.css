@@ -1,6 +1,0 @@
-header {
-    border-bottom: solid 1px #c7c7c7;
-    height: 70px;
-    width: 100%;
-    padding-inline: clamp(24px, 5vw, 46px);
-}

@@ -1,8 +1,8 @@
 ---
-import InputSearch from "../Apps/Dashboard/Aside/InputSearch/InputSearch";
-import AsideContainer from "../Apps/Dashboard/Aside/AsideContainer";
-import AddPlatform from "../Apps/Dashboard/Aside/AddPlatform/AddPlatform";
-import HeaderMain from "../Apps/Dashboard/Main/header/HeaderMain";
+import InputSearch from "@Components/InputSearch/InputSearch";
+import AsideContainer from "@Components/Aside/AsideContainer";
+import AddPlatform from "@Components/AddPlatform/AddPlatform";
+import HeaderMain from "@Components/Header/HeaderMain";
 
 const { redirect } = Astro.props;
 ---
@@ -25,14 +25,14 @@ const { redirect } = Astro.props;
                     </span>
                     <h3>Your Accounts</h3>
                 </div>
-                <AddPlatform client:load />
+                <AddPlatform transition:persist client:load />
             </div>
-            <InputSearch transition:persist client:load />
+            <InputSearch transition:persist client:idle />
         </section>
-        <AsideContainer slot="aside-list" transition:persist client:load />
+        <AsideContainer slot="aside-list" transition:persist client:idle />
     </aside>
     <main class="bg-bento f-col br-8 w-auto">
-        <HeaderMain transition:persist client:load redirect={redirect} />
+        <HeaderMain transition:persist client:idle redirect={redirect} />
         <slot />
     </main>
 </div>

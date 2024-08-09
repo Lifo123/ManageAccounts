@@ -1,0 +1,8 @@
+.edit-platform{
+    padding: 20px 36px;
+}
+.edit-in{
+    outline: none;
+    border: solid 1px var(--a-border);
+    background-color: var(--f-bg-bento-intense);
+}

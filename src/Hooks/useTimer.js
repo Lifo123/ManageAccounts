@@ -14,7 +14,10 @@ export default function useTimer(initial = 16, speed = 30) {
                 setTime(prevTime => {
                     if (prevTime <= 1) {
                         clearInterval(IntervalRef.current);
-                        resolve(FunctionToExecute());
+                        if (FunctionToExecute) {
+                            resolve(FunctionToExecute());
+                        }
+                        resolve(true);
                         return 0;
                     } else {
                         return prevTime - 1;

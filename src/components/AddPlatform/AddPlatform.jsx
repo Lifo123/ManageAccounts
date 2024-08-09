@@ -1,8 +1,11 @@
-import { saveAccounts } from '../../../../services/manageData'
-import { AccountListStore } from '../../context/Dashboard'
+import { useEffect, useState } from 'react'
+import { getAccounts, saveAccounts } from '../../services/manageData'
+import { AccountListStore, CurrentPlatformStore } from '../../Apps/context/Dashboard'
 import './AddPlatform.css'
 
 export default function AddPlatform() {
+    //States
+    const [isMounted, setIsMounted] = useState(false)
 
     //Functions
     const HandleAddPlatform = () => {
@@ -14,6 +17,15 @@ export default function AddPlatform() {
 
     }
 
+    useEffect(() => {
+        setIsMounted(true)
+        if (isMounted) {
+            const storedAccounts = getAccounts()
+
+            AccountListStore.set(storedAccounts)
+            CurrentPlatformStore.set(storedAccounts[0])
+        }
+    }, [isMounted])
 
 
     return (
