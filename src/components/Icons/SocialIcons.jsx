@@ -14,11 +14,10 @@ const Icons = {
 }
 
 export default function SocialIcons({ id }) {
+
     return (
         <span className="main-head-icon d-flex f-center">
-            {
-                Icons[id || 'none']
-            }
+            {Icons[id] ? Icons[id] : 'none'}
         </span>
     )
 }

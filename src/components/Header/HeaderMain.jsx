@@ -2,23 +2,33 @@ import './HeaderMain.css'
 import { useStore } from "@nanostores/react"
 import { CurrentPlatformStore } from "../../Apps/context/Dashboard"
 import SocialIcons from '@Components/Icons/SocialIcons';
+import { useEffect, useState } from 'react';
 
 
-export default function HeaderMain({ redirect,  }) {
+export default function HeaderMain({ redirect, isDashboard, }) {
     //GlobalStates
     const CurrentPlatform = useStore(CurrentPlatformStore)
+
+    // Client-side rendering check
+    const [isClient, setIsClient] = useState(false);
+
+    useEffect(() => {
+        setIsClient(true);
+    }, []);
 
     return (
         <section className="main-head f-row f-justify-between f-align-center">
             <div className="f-row f-center g-6">
                 <span>
-                    <SocialIcons id={CurrentPlatform.Platform } />
+                    <SocialIcons id={isClient ? CurrentPlatform.Platform : null} />
                 </span>
-                <h1 className='fs-4'>{CurrentPlatform.Platform || 'Empty'}</h1>
+                <h1 className='fs-4'>{isClient ? (CurrentPlatform.Platform || 'Empty') : 'Empty'}</h1>
             </div>
             <div className="f-row f-center g-5">
-                <span className="add-btn btn fw-800 br-max pointer"> Add </span>
-                <a className="main-head-icon d-flex f-center pointer br-max" href={redirect} aria-label={`Edit ${CurrentPlatform.Platform} Platform`}>
+                {
+                    isDashboard ? <span className="add-btn btn fw-800 br-max pointer"> Add </span> : null
+                }
+                <a className="main-head-icon d-flex f-center pointer br-max" href={redirect} aria-label='Edit Platform'>
                     <svg height="24px" viewBox="0 0 52 52">
                         <path
                             stroke="none"

@@ -4,7 +4,7 @@ import AsideContainer from "@Components/Aside/AsideContainer";
 import AddPlatform from "@Components/AddPlatform/AddPlatform";
 import HeaderMain from "@Components/Header/HeaderMain";
 
-const { redirect } = Astro.props;
+const { redirect, isDashboard } = Astro.props;
 ---
 
 <div class="containter d-grid p-2 g-2 relative h-100 o-hidden">
@@ -27,13 +27,13 @@ const { redirect } = Astro.props;
                 </div>
                 <AddPlatform transition:persist client:load />
             </div>
-            <InputSearch transition:persist client:idle />
+            <InputSearch transition:persist client:visible />
         </section>
-        <AsideContainer slot="aside-list" transition:persist client:idle />
+        <AsideContainer slot="aside-list" transition:persist client:visible />
     </aside>
     <main class="bg-bento f-col br-8 w-auto">
-        <HeaderMain transition:persist client:idle redirect={redirect} />
-        <slot />
+        <HeaderMain transition:persist client:visible redirect={redirect} isDashboard={isDashboard} />
+        <slot/>
     </main>
 </div>
 

@@ -9,8 +9,6 @@ import AccountCard from "./AccountCard/AccountCard";
 export default function Main() {
     //GlobalStates
     const CurrentPlatform = useStore(CurrentPlatformStore)
-    
-
     return (
         <section className="card-container f-col g-2">
             {

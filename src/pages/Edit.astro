@@ -5,7 +5,7 @@ import EditPlatform from "../Apps/Edit/EditPlatform";
 ---
 
 <Layout title="Manage Accounts | Edit" description="desc">
-    <ManageLayout redirect="/ManageAccounts/Dashboard">
-        <EditPlatform client:idle/>
+    <ManageLayout redirect="/ManageAccounts/Dashboard" isDashboard={false}>
+        <EditPlatform client:load />
     </ManageLayout>
 </Layout>

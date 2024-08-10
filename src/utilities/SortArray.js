@@ -1,7 +1,7 @@
 export const SortArray = (Array, String, id) => {
     let CurrentItem = [Array.filter(item => item.id === id)[0]];
-
     let filteredArray = Array.filter(item => item.id !== id);
+    
     let sortedArray = filteredArray.sort((a, b) => {
         const firstValueA = Object.values(a)[0].toLowerCase();
         const firstValueB = Object.values(b)[0].toLowerCase();
