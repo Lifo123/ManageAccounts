@@ -1,0 +1,51 @@
+---
+import Input from "@Components/Input/Input";
+
+const { type } = Astro.props;
+---
+
+<main class="f-col f-center fixed g-5 h-100 w-100 p-2" transition:animate="none">
+    <div class="logreg f-col g-2">
+        <span class="text-center">Icons</span>
+        <h1 class="text-center p-title my-4">
+            Sign {type === "login" ? "in" : "up"} to Manager
+        </h1>
+        <form class="bg-bento br-8 f-col px-5 py-5 g-4">
+            <span class="f-col g-1">
+                <p class="p-title">Username</p>
+                <Input text="Username" name="username" autocomplete="username"/>
+            </span>
+            <span class="f-col g-1">
+                <p class="p-title">Password</p>
+                <Input text="Password" type="password" name="password" autocomplete="current-password"/>
+            </span>
+
+            <slot name="logreg-repeat-password"/>
+
+            <slot name="logreg-button"/>
+        </form>
+        <section class="bg-bento br-6 mt-2 p-4">
+            <slot name="logreg-footer"/>
+        </section>
+    </div>
+</main>
+
+<style>
+    .logreg{
+        width: 360px;
+    }
+    .input-def{
+        border: solid 1px var(--a-border);
+    }
+    .p-title {
+        color: var(--f-tittle);
+    }
+    main {
+        top: 42%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    p {
+        margin: 0;
+    }
+</style>

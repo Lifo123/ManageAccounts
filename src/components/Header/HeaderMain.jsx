@@ -1,20 +1,42 @@
 import './HeaderMain.css'
 import { useStore } from "@nanostores/react"
-import { CurrentPlatformStore } from "../../Apps/context/Dashboard"
+import { CurrentPlatformStore, AccountListStore } from "../../Apps/context/Dashboard"
 import SocialIcons from '@Components/Icons/SocialIcons';
 import { useEffect, useState } from 'react';
+import { saveAccounts } from '@services/manageData';
 
 
 export default function HeaderMain({ redirect, isDashboard, }) {
     //GlobalStates
+    const Accounts = useStore(AccountListStore)
     const CurrentPlatform = useStore(CurrentPlatformStore)
 
     // Client-side rendering check
     const [isClient, setIsClient] = useState(false);
 
+    //Effects
     useEffect(() => {
         setIsClient(true);
     }, []);
+
+    //Functions
+    const HandleAddCardAccount = () => {
+        let currentIndex = Accounts.findIndex(account => account.id === CurrentPlatform.id);
+        let currentArray = Accounts.splice(currentIndex, 1);
+
+
+        currentArray = {
+            ...currentArray[0], Accounts: [...currentArray[0].Accounts,
+            { user: '', email: '', password: '' }
+            ]
+        };
+
+        Accounts.splice(currentIndex, 0, currentArray);
+
+        AccountListStore.set(saveAccounts(Accounts));
+        CurrentPlatformStore.set(currentArray);
+
+    }
 
     return (
         <section className="main-head f-row f-justify-between f-align-center">
@@ -26,7 +48,7 @@ export default function HeaderMain({ redirect, isDashboard, }) {
             </div>
             <div className="f-row f-center g-5">
                 {
-                    isDashboard ? <span className="add-btn btn fw-800 br-max pointer"> Add </span> : null
+                    isDashboard ? <span className="add-btn btn fw-800 br-max pointer" onClick={HandleAddCardAccount}> Add </span> : null
                 }
                 <a className="main-head-icon d-flex f-center pointer br-max" href={redirect} aria-label='Edit Platform'>
                     <svg height="24px" viewBox="0 0 52 52">

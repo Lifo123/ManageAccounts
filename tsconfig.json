@@ -7,8 +7,11 @@
     "paths": {
       "@Components/*": ["src/components/*"],
       "@Hooks/*": ["src/Hooks/*"],
+      "@Apps/*": ["src/Apps/*"],
       "@services/*": ["src/services/*"],
       "@utilities/*": ["src/utilities/*"],
+      "@layouts/*": ["src/layouts/*"],
+      "@assets/*": ["src/assets/*"],
     }
   }
 }

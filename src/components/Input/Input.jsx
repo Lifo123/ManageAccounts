@@ -1,10 +1,12 @@
+import './Input.css'
 
-
-export default function Input({ data }) {
-    console.log(data);
-    
-
+export default function Input({ text = null, name = null, type = "text", autocomplete = null }) {
     return (
-        <input className='edit-in br-6 py-3 px-5' type="text" placeholder={data.Platform}/>
+        <input className='input-def br-6 py-3 px-4 fs-1'
+            type={type}
+            name={name}
+            placeholder={text || 'Empty Value'}
+            autocomplete={autocomplete}
+        />
     )
 }

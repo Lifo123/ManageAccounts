@@ -1,4 +1,6 @@
 import './EditPlatform.css'
+import '@Components/Input/Input.css'
+
 import { useStore } from '@nanostores/react'
 import { CurrentPlatformStore, AccountListStore } from '../context/Dashboard'
 import { useEffect, useState } from 'react';
@@ -66,7 +68,7 @@ export default function EditPlatform() {
         <section className='edit-platform f-col g-2'>
             <div className='f-row f-justify-between'>
                 <input
-                    className='edit-in br-6 py-3 px-5'
+                    className='input-def br-6 py-3 px-5'
                     type="text"
                     placeholder={CurrentPlatform.Platform || 'Empty'}
                     value={inputValue}

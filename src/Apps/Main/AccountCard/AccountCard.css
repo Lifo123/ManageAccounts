@@ -9,7 +9,7 @@
     gap: 14px;
 }
 .card-account:hover{
-    border: solid 1px var(--a-border-intente);
+    border: solid 1px var(--a-border-intense);
 }
 .card-account strong{
     color: var(--f-tittle);
