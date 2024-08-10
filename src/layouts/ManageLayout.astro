@@ -7,6 +7,19 @@ import HeaderMain from "@Components/Header/HeaderMain";
 const { redirect, isDashboard } = Astro.props;
 ---
 
+<script is:inline>
+    let currentToken = JSON.parse(localStorage.getItem("accsToken"));
+    if (!currentToken) {
+        window.location.replace("/ManageAccounts/Login");
+    }
+    let userToken = JSON.parse(
+        localStorage.getItem("accsUser-" + currentToken.username),
+    );
+    if (!userToken || currentToken.token !== userToken.token) {
+        window.location.replace("/ManageAccounts/Login");
+    }
+</script>
+
 <div class="containter d-grid p-2 g-2 relative h-100 o-hidden">
     <aside class="bg-bento br-8 f-col">
         <section class="as-head f-col h-max">
@@ -32,8 +45,13 @@ const { redirect, isDashboard } = Astro.props;
         <AsideContainer slot="aside-list" transition:persist client:visible />
     </aside>
     <main class="bg-bento f-col br-8 w-auto relative">
-        <HeaderMain transition:persist client:visible redirect={redirect} isDashboard={isDashboard} />
-        <slot/>
+        <HeaderMain
+            transition:persist
+            client:visible
+            redirect={redirect}
+            isDashboard={isDashboard}
+        />
+        <slot />
     </main>
 </div>
 

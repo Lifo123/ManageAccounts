@@ -6,7 +6,7 @@ export default function Input({ text = null, name = null, type = "text", autocom
             type={type}
             name={name}
             placeholder={text || 'Empty Value'}
-            autocomplete={autocomplete}
+            autoComplete={autocomplete}
         />
     )
 }

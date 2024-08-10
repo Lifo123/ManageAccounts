@@ -6,6 +6,7 @@ import { CurrentPlatformStore, AccountListStore } from '../context/Dashboard'
 import { useEffect, useState } from 'react';
 import useTimer from '@Hooks/useTimer';
 import { deleteAccount, saveAccounts } from '@services/manageData'
+import { LogoutUser } from '@services/manageUserData';
 
 export default function EditPlatform() {
     //GlobalStates
@@ -31,7 +32,7 @@ export default function EditPlatform() {
             CurrentPlatformStore.set({
                 ...CurrentPlatform,
                 shouldClearInput: false
-            });  
+            });
         }
     }, [CurrentPlatform]);
 
@@ -48,7 +49,7 @@ export default function EditPlatform() {
         CurrentPlatformStore.set({ ...CurrentPlatform, Platform: value });
 
         const updatedAccounts = Accounts.map(account =>
-            account.id ===  CurrentPlatform.id ? { ...account, Platform: value } : account
+            account.id === CurrentPlatform.id ? { ...account, Platform: value } : account
         );
 
         AccountListStore.set(saveAccounts(updatedAccounts));
@@ -76,6 +77,7 @@ export default function EditPlatform() {
                 />
             </div>
             <span className='btn-red btn d-flex f-center br-4 mt-4' onClick={HandleDeletePlatform}>Delete Platform</span>
+            <span className='btn-red btn d-flex f-center w-max br-4 mt-5' onClick={LogoutUser}>Log Out</span>
         </section>
     )
 }

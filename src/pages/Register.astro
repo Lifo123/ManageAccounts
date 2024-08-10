@@ -9,10 +9,10 @@ import Button from "@Apps/LogReg/Button";
 <Layout title="Register" description="Register to your account">
     <LogRegLayout type="register">
         <span class="f-col g-1" slot="logreg-repeat-password">
-            <p class="p-title m-0">Repeat Password</p>
+            <p class="p-title mb-1">Repeat Password</p>
             <Input text="Repeat Password" type="password" name="new-password" autocomplete="new-password"/>
         </span>
-        <Button type="register" slot="logreg-button"/>
+        <Button type="register" slot="logreg-button" client:visible/>
         <p class="f-row g-2 fs-1 f-center m-0" slot="logreg-footer">
             Already have an account?
             <a href={`/ManageAccounts/Login`} class="link-text">Sign in</a>
