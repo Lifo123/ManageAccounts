@@ -10,8 +10,5 @@ export default defineConfig({
   outDir: 'Build',
   build: {
     assets: 'assets',
-    client: {
-      transpile: false,
-    },
   }
 });
