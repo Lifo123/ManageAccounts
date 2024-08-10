@@ -9,6 +9,9 @@ export default defineConfig({
   integrations: [react()],
   outDir: 'Build',
   build: {
-    assets: 'assets'
+    assets: 'assets',
+    client: {
+      transpile: false,
+    },
   }
 });
