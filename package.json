@@ -8,7 +8,7 @@
     "predeploy": "pnpm run build",
     "dev": "astro dev --host",
     "start": "astro dev",
-    "build": "astro build",
+    "build": "astro build && node src/utilities/RenameFiles.js",
     "preview": "astro preview --host",
     "astro": "astro"
   },

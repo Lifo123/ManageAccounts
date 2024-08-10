@@ -1,11 +1,11 @@
 import { generateSalt, hashPass } from '@utilities/Hashing';
 
-const getData = (username) => {
+export const getUserData = (username) => {
     return JSON.parse(localStorage.getItem('accsUser-' + username));
 }
 
 export const validateLogin = (username, pass) => {
-    let userInfo = getData(username);
+    let userInfo = getUserData(username);
 
     let inHash = hashPass(pass + userInfo.salt);
 
@@ -36,7 +36,8 @@ export const registerUser = (username, pass) => {
         salt: salt,
         password: hash,
         token: token,
-        customPass: []
+        customPass: [],
+        Accounts: []
     }
 
     localStorage.setItem('accsUser-' + username, JSON.stringify(data));
@@ -50,7 +51,7 @@ export const registerUser = (username, pass) => {
 }
 
 export const validateUser = (username) => {
-    let data = getData(username);
+    let data = getUserData(username);
     if (data) {
         return true;
     } else {

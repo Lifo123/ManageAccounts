@@ -1,7 +1,9 @@
-import { useEffect, useState } from 'react'
-import { getAccounts, saveAccounts } from '../../services/manageData'
-import { AccountListStore, CurrentPlatformStore } from '../../Apps/context/Dashboard'
 import './AddPlatform.css'
+import { useEffect, useState } from 'react'
+import { getAccounts, saveAccounts } from '@services/manageData'
+import { getUserData } from '@services/manageUserData'
+import { AccountListStore, CurrentPlatformStore } from '@Apps/context/Dashboard'
+import { UserStore } from 'src/context/GlobalStore'
 import { MaxIndex } from '@utilities/FindMaxIndex'
 import { SortByUsage } from '@utilities/SortArray'
 
@@ -24,11 +26,16 @@ export default function AddPlatform() {
     useEffect(() => {
         setIsMounted(true)
         if (isMounted) {
+            let User = JSON.parse(localStorage.getItem('accsToken'));
+            UserStore.set(getUserData(User.username))
+
+
             const storedAccounts = getAccounts()
             const sortedAccountsByUsage = SortByUsage(storedAccounts);
 
             AccountListStore.set(sortedAccountsByUsage)
             CurrentPlatformStore.set(sortedAccountsByUsage[0])
+
         }
     }, [isMounted])
 

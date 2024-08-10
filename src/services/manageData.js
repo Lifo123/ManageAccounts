@@ -1,14 +1,5 @@
 export const getAccounts = () => {
    const Accounts = JSON.parse(localStorage.getItem('Accounts') || '[{"Platform":"Platform","Usage":0, "id": 1, "Accounts":[]}]');
-
-   // const test = Accounts.map(account => (
-   //    {...account, Usage: 0}
-   // ));
-
-   // const wasa = test.sort((a, b) => a.id - b.id);
-
-   // localStorage.setItem('Accounts', JSON.stringify(wasa));
-
    return Accounts;
 }
 

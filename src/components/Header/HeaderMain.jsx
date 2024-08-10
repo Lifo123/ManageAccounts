@@ -4,12 +4,14 @@ import { CurrentPlatformStore, AccountListStore } from "../../Apps/context/Dashb
 import SocialIcons from '@Components/Icons/SocialIcons';
 import { useEffect, useState } from 'react';
 import { saveAccounts } from '@services/manageData';
+import { UserStore } from 'src/context/GlobalStore';
 
 
 export default function HeaderMain({ redirect, isDashboard, }) {
     //GlobalStates
     const Accounts = useStore(AccountListStore)
-    const CurrentPlatform = useStore(CurrentPlatformStore)
+    const CurrentPlatform = useStore(CurrentPlatformStore);
+    const User = useStore(UserStore);
 
     // Client-side rendering check
     const [isClient, setIsClient] = useState(false);
@@ -47,6 +49,7 @@ export default function HeaderMain({ redirect, isDashboard, }) {
                 <h1 className='fs-4'>{isClient ? (CurrentPlatform.Platform || 'Empty') : 'Empty'}</h1>
             </div>
             <div className="f-row f-center g-5">
+                <p className='fs-2 m-0'>{User?.username}</p>
                 {
                     isDashboard ? <span className="add-btn btn fw-800 br-max pointer" onClick={HandleAddCardAccount}> Add </span> : null
                 }
