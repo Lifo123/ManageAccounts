@@ -1,0 +1,1 @@
+const n=e=>JSON.parse(e),i=e=>JSON.stringify(e),o=e=>localStorage.getItem(e),a=(e,t)=>localStorage.setItem(e,t),c=e=>{let t=0;if(Array.isArray(e))for(let r=0;r<e.length;r++)e[r].id>t&&(t=e[r].id);else Object.keys(e).map(r=>{const s={Platform:r,...e[r]};s.id>t&&(t=s.id)});return t};export{c as M,a,o as g,n as p,i as s};
