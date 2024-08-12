@@ -1,1 +1,0 @@
-const o=()=>JSON.parse(localStorage.getItem("Accounts")||'[{"Platform":"Platform","Usage":0, "id": 1, "Accounts":[]}]'),e=t=>(localStorage.setItem("Accounts",JSON.stringify(t)),t),r=t=>{const c=o().map(s=>s.id===t?{...s,Usage:s.Usage+1}:s);return e(c)},u=t=>{const c=o().filter(s=>s.id!==t);return e(c)};export{u as d,o as g,e as s,r as u};

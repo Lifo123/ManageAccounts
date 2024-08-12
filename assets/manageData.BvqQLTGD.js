@@ -1,0 +1,1 @@
+const n=t=>{let c=JSON.parse(localStorage.getItem("accsUser-"+t));return c.Accounts.length<=0?!1:c.Accounts},r=(t,c)=>(localStorage.setItem("accsUser-"+c,JSON.stringify(t)),t),o=t=>{const e=n().filter(s=>s.id!==t);return r(e)};export{o as d,n as g,r as s};
