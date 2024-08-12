@@ -16,22 +16,12 @@ const xorWithSalt = (text, salt) => {
     ).join('');
 }
 
-export const encrypt = (text, username, salt, token) => {
+export const encrypt = (text, salt) => {
     const xorText = xorWithSalt(text, salt);
-    return {
-        username: username,
-        salt: salt,
-        data: btoa(xorText),
-        token: token,
-    };
+    return btoa(xorText)
 }
 
-export const decrypt = (encodedText, username, salt, token) => {
+export const decrypt = (encodedText, salt) => {
     const decodedText = atob(encodedText);
-    return {
-        username: username,
-        salt: salt,
-        data: xorWithSalt(decodedText, salt),
-        token: token,
-    };
+    return xorWithSalt(decodedText, salt)
 }

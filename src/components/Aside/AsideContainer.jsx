@@ -7,7 +7,7 @@ import { useEffect, useState } from 'react';
 
 export default function AsideContainer() {
     //AppStates
-    const Accounts = useStore(AccountListStore);
+    const Platforms = useStore(AccountListStore);
 
     //States
     const [isMounted, setIsMounted] = useState(false);
@@ -16,18 +16,21 @@ export default function AsideContainer() {
         setIsMounted(true);
     }, []);
 
-    if (isMounted){
+    if (isMounted) {
         return (
             <ul className='aside-cont f-col g-2 o-hidden relative'>
-                wasa
-                {/* {
-                    Accounts && Accounts.map((item, index) => (
-                        <AsideList key={index} data={item} />
-                    ))
-                } */}
+                {Object.keys(Platforms).map(platformName => {
+                    const data = {Platform: platformName, ...Platforms[platformName]}
+                    return (
+                        <AsideList
+                            key={data.id}
+                            data={data}
+                        />
+                    );
+                })}
             </ul>
         )
-    }else{
+    } else {
         return <p>Loading...</p>;
     }
 }

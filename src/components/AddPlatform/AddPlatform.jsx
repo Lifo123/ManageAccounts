@@ -5,10 +5,15 @@ import { getUserData } from '@services/manageUserData'
 import { AccountListStore, CurrentPlatformStore } from '@Apps/context/Dashboard'
 import { UserStore } from 'src/context/GlobalStore'
 import { SortByUsage } from '@utilities/SortArray'
-import { MaxIndex } from '@utilities/json'
+import { MaxIndex, parse } from '@utilities/json'
+import { useStore } from '@nanostores/react'
+import { decrypt } from '@utilities/Hashing'
 
 
 export default function AddPlatform() {
+    //GlobalStates
+    const User = useStore(UserStore);
+
     //States
     const [isMounted, setIsMounted] = useState(false)
     
@@ -28,14 +33,21 @@ export default function AddPlatform() {
     useEffect(() => {
         setIsMounted(true)
         if (isMounted) {
-            let User = JSON.parse(localStorage.getItem('accsToken'));
-            
-            getAccounts(User.username)
+            let UserData = getUserData(User.username);
+            let Accounts = parse(decrypt(UserData.data, UserData.salt)).Accounts
+            AccountListStore.set(Accounts);
 
+            let key = Object.keys(Accounts)[0];
+            let CurrentPlatform = {
+                Platform: key, id: Accounts[key].id, Usage: Accounts[key].Usage, Accounts: Accounts[key].Accounts
+            };
+
+            CurrentPlatformStore.set(CurrentPlatform);
+            
         
 
         }
-    }, [])
+    }, [isMounted])
 
 
     return (

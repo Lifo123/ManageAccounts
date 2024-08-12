@@ -8,6 +8,8 @@ import { updateUsage } from "@services/manageData";
 export default function AsideList({ data }) {
     //GlobalStates
     const CurrentPlatform = useStore(CurrentPlatformStore)
+    console.log(data);
+    
 
     //Refs
     const ListRef = useRef(null);
@@ -15,7 +17,6 @@ export default function AsideList({ data }) {
 
     //Functions
     const HandleSelectPlatform = (e) => {
-        updateUsage(data.id)
         CurrentPlatformStore.set({ ...data, shouldClearInput: true, active: true });
     }
 

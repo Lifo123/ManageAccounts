@@ -1,7 +1,7 @@
-import { MaxIndex } from "@utilities/json";
+import { getLocal, MaxIndex, parse } from "@utilities/json";
 
 export const getAccounts = (username) => {
-   let userData = JSON.parse(localStorage.getItem('accsUser-' + username));
+   let userData = parse(getLocal('accsUser-' + username));
 
 
    if (userData.Accounts.length <= 0) {
