@@ -1,4 +1,4 @@
-import { MaxIndex } from "@utilities/FindMaxIndex";
+import { MaxIndex } from "@utilities/json";
 
 export const getAccounts = (username) => {
    let userData = JSON.parse(localStorage.getItem('accsUser-' + username));

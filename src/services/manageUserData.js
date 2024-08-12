@@ -1,22 +1,29 @@
-import { generateSalt, hashPass } from '@utilities/Hashing';
+import { decrypt, encrypt, generateSalt, hashPass } from '@utilities/Hashing';
+import { parse, stringify } from '@utilities/json';
 
 export const getUserData = (username) => {
     return JSON.parse(localStorage.getItem('accsUser-' + username));
 }
 
 export const validateLogin = (username, pass) => {
-    let userInfo = getUserData(username);
+    let UserToLogin = JSON.parse(localStorage.getItem('accsUser-' + username));
 
-    let inHash = hashPass(pass + userInfo.salt);
+    let data = decrypt(getUserData(username).data, username, UserToLogin.salt, UserToLogin.token);
+    let userInfo = JSON.parse(data.data);
+    let inHash = hashPass(pass + UserToLogin.salt);
+    
 
     if (inHash === userInfo.password) {
+        //Manage Token
         let token = generateToken();
+        
         localStorage.setItem('accsToken', JSON.stringify({
-            token: token, username: username
+            username: UserToLogin.username, token: token, salt: UserToLogin.salt
         }));
-        localStorage.setItem('accsUser-' + username, JSON.stringify({
-            ...userInfo, token: token
-        }));
+
+        //Encrypt data
+        let encryptedData = encrypt(JSON.stringify(userInfo), UserToLogin.username, UserToLogin.salt, token); 
+        localStorage.setItem('accsUser-' + username, stringify(encryptedData));
         window.location.replace('/ManageAccounts/Dashboard');
         return;
     }
@@ -32,18 +39,17 @@ export const registerUser = (username, pass) => {
     let hash = hashPass(pass + salt);
 
     let data = {
-        username: username,
-        salt: salt,
         password: hash,
-        token: token,
         customPass: [],
         Accounts: []
     }
+    //Encrypt data
+    let encryptedData = encrypt(JSON.stringify(data), username, salt, token);
 
-    localStorage.setItem('accsUser-' + username, JSON.stringify(data));
-    //Manage Token
+    //Manage Storage
+    localStorage.setItem('accsUser-' + username, JSON.stringify(encryptedData));
     localStorage.setItem('accsToken', JSON.stringify({
-        token: token, username: username
+        username: username, token: token, salt: salt
     }));
 
     window.location.replace('/ManageAccounts/Dashboard');

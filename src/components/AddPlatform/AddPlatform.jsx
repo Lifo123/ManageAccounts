@@ -4,8 +4,8 @@ import { getAccounts, saveAccounts } from '@services/manageData'
 import { getUserData } from '@services/manageUserData'
 import { AccountListStore, CurrentPlatformStore } from '@Apps/context/Dashboard'
 import { UserStore } from 'src/context/GlobalStore'
-import { MaxIndex } from '@utilities/FindMaxIndex'
 import { SortByUsage } from '@utilities/SortArray'
+import { MaxIndex } from '@utilities/json'
 
 
 export default function AddPlatform() {

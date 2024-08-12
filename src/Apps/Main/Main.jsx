@@ -19,7 +19,7 @@ export default function Main() {
         setIsMounted(true)
     }, [])
 
-    if (!isMounted){
+    if (isMounted){
         return (
             <section className="card-container f-col g-6 oy-auto h-80 relative">
                 {
