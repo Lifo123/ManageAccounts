@@ -1,18 +1,21 @@
-import { getLocal, MaxIndex, parse } from "@utilities/json";
+import { decrypt, encrypt } from "@utilities/Hashing";
+import { getLocal, MaxIndex, parse, setLocal, stringify } from "@utilities/json";
 
+//Posible error
 export const getAccounts = (username) => {
-   let userData = parse(getLocal('accsUser-' + username));
-
-
-   if (userData.Accounts.length <= 0) {
-      return false;
-   }
-
-   return userData.Accounts;
+   return parse(getLocal('accsUser-' + username));
 }
 
 export const saveAccounts = (UpdatedAccounts, username) => {
-   localStorage.setItem('accsUser-' + username, JSON.stringify(UpdatedAccounts));
+   let userData = getAccounts(username);
+   let DecryptedData = parse(decrypt(userData.data, userData.salt));
+   DecryptedData = {...DecryptedData, Accounts: UpdatedAccounts};
+   
+   let EncryptedData = encrypt(stringify(DecryptedData), userData.salt);
+   userData = {...userData, data: EncryptedData};
+
+   setLocal('accsUser-' + username, stringify(userData));
+
    return UpdatedAccounts;
 }
 
@@ -25,9 +28,8 @@ export const updateUsage = (id) => {
    return saveAccounts(Acc);
 }
 
-export const deleteAccount = (id) => {
-   const Accounts = getAccounts();
-   const FilteredAccounts = Accounts.filter(account => account.id !== id);
-
-   return saveAccounts(FilteredAccounts);
+export const deleteAccount = (data, id) => {
+   let filteredData = data.filter(account => account.id !== id);
+   return filteredData
+   
 }

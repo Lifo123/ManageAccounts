@@ -7,11 +7,13 @@ import { useEffect, useState } from 'react';
 import useTimer from '@Hooks/useTimer';
 import { deleteAccount, saveAccounts } from '@services/manageData'
 import { LogoutUser } from '@services/manageUserData';
+import { UserStore } from 'src/context/GlobalStore';
 
 export default function EditPlatform() {
     //GlobalStates
     const CurrentPlatform = useStore(CurrentPlatformStore)
     const Accounts = useStore(AccountListStore)
+    const User = useStore(UserStore)
 
     //States
     const [isMounted, setIsMounted] = useState(false);
@@ -52,15 +54,14 @@ export default function EditPlatform() {
             account.id === CurrentPlatform.id ? { ...account, Platform: value } : account
         );
 
-        AccountListStore.set(saveAccounts(updatedAccounts));
-
+        AccountListStore.set(saveAccounts(updatedAccounts, User.username));
 
 
     }
 
     const HandleDeletePlatform = () => {
-        const newAccounts = deleteAccount(CurrentPlatform.id);
-
+        let newAccounts = deleteAccount(Accounts, CurrentPlatform.id, User.username);
+        saveAccounts(newAccounts, User.username);
         AccountListStore.set(newAccounts);
         CurrentPlatformStore.set({ ...newAccounts[0], shouldClearInput: true });
     }

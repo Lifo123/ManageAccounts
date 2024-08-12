@@ -19,14 +19,21 @@ export default function AddPlatform() {
     
 
     //Functions
-    const HandleAddPlatform = () => {
+    const HandleAddPlatform = (e) => {
         const Accounts = AccountListStore.get()
         const id = MaxIndex(Accounts) + 1;
-
-        AccountListStore.set(saveAccounts([{ Platform: `New Platform ${id}`, Usage: 0, id: id, Accounts: [] }, ...Accounts]))
-
-        const updatedAccounts = getAccounts();
-        CurrentPlatformStore.set({ ...updatedAccounts[0], shouldClearInput: true });
+        
+        //Guardar nuevo platform
+        let newAccounts = [...Accounts, {
+                Platform: `New Platform ${id}`,
+                Usage: 0,
+                id: id,
+                Accounts: []
+            }
+        ]
+        
+        AccountListStore.set(newAccounts);
+        saveAccounts(newAccounts, User.username);
 
     }
 
@@ -34,18 +41,10 @@ export default function AddPlatform() {
         setIsMounted(true)
         if (isMounted) {
             let UserData = getUserData(User.username);
-            let Accounts = parse(decrypt(UserData.data, UserData.salt)).Accounts
-            AccountListStore.set(Accounts);
-
-            let key = Object.keys(Accounts)[0];
-            let CurrentPlatform = {
-                Platform: key, id: Accounts[key].id, Usage: Accounts[key].Usage, Accounts: Accounts[key].Accounts
-            };
-
-            CurrentPlatformStore.set(CurrentPlatform);
+            let DecryptData = parse(decrypt(UserData.data, UserData.salt))
+            AccountListStore.set(DecryptData.Accounts);
+            CurrentPlatformStore.set(DecryptData.Accounts[0]);
             
-        
-
         }
     }, [isMounted])
 

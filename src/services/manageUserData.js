@@ -42,13 +42,12 @@ export const registerUser = (username, pass) => {
     let data = {
         password: hash,
         customPass: [],
-        Accounts: {
-            "Platform": {
-                id: 1,
-                Usage: 0,
-                Accounts: []
-            }
-        }
+        Accounts: [{
+            Platform: `New Platform`,
+            Usage: 0,
+            id: 1,
+            Accounts: []
+        }]
     }
     //Encrypt data
     let encryptedData = encrypt(JSON.stringify(data), salt);

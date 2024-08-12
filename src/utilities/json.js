@@ -14,12 +14,22 @@ export const setLocal = (key, value) => {
     return localStorage.setItem(key, value);
 }
 
-export const MaxIndex = (Array) => {
+export const MaxIndex = (data) => {
     let max = 0;
-    for (let i = 0; i < Array.length; i++) {
-        if (Array[i].id > max) {
-            max = Array[i].id;
+    if(Array.isArray(data)){
+        for (let i = 0; i < data.length; i++) {
+            if (data[i].id > max) {
+                max = data[i].id;
+            }
         }
+    }else{
+        Object.keys(data).map(Platform => {
+            const dataList = {Platform: Platform, ...data[Platform]}
+            if (dataList.id > max) {
+                max = dataList.id;
+            }
+        })
+
     }
     return max;
 }
