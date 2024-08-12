@@ -4,7 +4,8 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
-    "deploy": "gh-pages -d Build",
+    "deploy": "gh-pages -d Build --dotfiles",
+    "predeploy": "pnpm run build",
     "dev": "astro dev --host",
     "start": "astro dev",
     "build": "astro build",

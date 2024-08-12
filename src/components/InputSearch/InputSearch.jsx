@@ -8,6 +8,7 @@ import { useStore } from '@nanostores/react';
 export default function InputSearch() {
     //GlobalStates
     const CurrentPlatform = useStore(CurrentPlatformStore)
+    
 
     //Hooks
     const { CountDown } = useTimer(2);

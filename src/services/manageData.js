@@ -1,10 +1,18 @@
-export const getAccounts = () => {
-   const Accounts = JSON.parse(localStorage.getItem('Accounts') || '[{"Platform":"Platform","Usage":0, "id": 1, "Accounts":[]}]');
-   return Accounts;
+import { MaxIndex } from "@utilities/FindMaxIndex";
+
+export const getAccounts = (username) => {
+   let userData = JSON.parse(localStorage.getItem('accsUser-' + username));
+
+
+   if (userData.Accounts.length <= 0) {
+      return false;
+   }
+
+   return userData.Accounts;
 }
 
-export const saveAccounts = (UpdatedAccounts) => {
-   localStorage.setItem('Accounts', JSON.stringify(UpdatedAccounts));
+export const saveAccounts = (UpdatedAccounts, username) => {
+   localStorage.setItem('accsUser-' + username, JSON.stringify(UpdatedAccounts));
    return UpdatedAccounts;
 }
 

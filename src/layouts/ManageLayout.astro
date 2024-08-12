@@ -1,13 +1,13 @@
 ---
+import AddPlatform from "@Components/AddPlatform/AddPlatform";
 import InputSearch from "@Components/InputSearch/InputSearch";
 import AsideContainer from "@Components/Aside/AsideContainer";
-import AddPlatform from "@Components/AddPlatform/AddPlatform";
 import HeaderMain from "@Components/Header/HeaderMain";
 
 const { redirect, isDashboard } = Astro.props;
 ---
 
-<script is:inline>
+<script type="module" is:inline>
     let currentToken = JSON.parse(localStorage.getItem("accsToken"));
     if (!currentToken) {
         window.location.replace("/ManageAccounts/Login");
@@ -40,14 +40,14 @@ const { redirect, isDashboard } = Astro.props;
                 </div>
                 <AddPlatform transition:persist client:load />
             </div>
-            <InputSearch transition:persist client:visible />
+            <InputSearch transition:persist client:idle />
         </section>
-        <AsideContainer slot="aside-list" transition:persist client:visible />
+        <AsideContainer slot="aside-list" transition:persist client:idle />
     </aside>
     <main class="bg-bento f-col br-8 w-auto relative">
         <HeaderMain
             transition:persist
-            client:visible
+            client:idle
             redirect={redirect}
             isDashboard={isDashboard}
         />

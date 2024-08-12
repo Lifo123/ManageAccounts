@@ -16,13 +16,18 @@ export default function AsideContainer() {
         setIsMounted(true);
     }, []);
 
-    return (
-        <ul className='aside-cont f-col g-2 o-hidden relative'>
-            {
-                isMounted && Accounts && Accounts.map((item, index) => (
-                    <AsideList key={index} data={item} />
-                ))
-            }
-        </ul>
-    )
+    if (isMounted){
+        return (
+            <ul className='aside-cont f-col g-2 o-hidden relative'>
+                wasa
+                {/* {
+                    Accounts && Accounts.map((item, index) => (
+                        <AsideList key={index} data={item} />
+                    ))
+                } */}
+            </ul>
+        )
+    }else{
+        return <p>Loading...</p>;
+    }
 }

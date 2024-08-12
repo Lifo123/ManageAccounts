@@ -1,4 +1,9 @@
+import { getLocal, parse } from "@utilities/json";
 import { atom } from "nanostores";
 
-export const AccountListStore = atom([]);
+const isBrowser = typeof window !== "undefined";
+
+export const AccountListStore = atom(isBrowser ? parse(getLocal('accsToken')) : null);
+
+
 export const CurrentPlatformStore = atom([]);

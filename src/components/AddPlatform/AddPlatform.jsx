@@ -7,9 +7,11 @@ import { UserStore } from 'src/context/GlobalStore'
 import { MaxIndex } from '@utilities/FindMaxIndex'
 import { SortByUsage } from '@utilities/SortArray'
 
+
 export default function AddPlatform() {
     //States
     const [isMounted, setIsMounted] = useState(false)
+    
 
     //Functions
     const HandleAddPlatform = () => {
@@ -27,17 +29,13 @@ export default function AddPlatform() {
         setIsMounted(true)
         if (isMounted) {
             let User = JSON.parse(localStorage.getItem('accsToken'));
-            UserStore.set(getUserData(User.username))
+            
+            getAccounts(User.username)
 
-
-            const storedAccounts = getAccounts()
-            const sortedAccountsByUsage = SortByUsage(storedAccounts);
-
-            AccountListStore.set(sortedAccountsByUsage)
-            CurrentPlatformStore.set(sortedAccountsByUsage[0])
+        
 
         }
-    }, [isMounted])
+    }, [])
 
 
     return (
