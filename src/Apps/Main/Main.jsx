@@ -5,7 +5,6 @@ import { CurrentPlatformStore } from "../context/Dashboard"
 import { useEffect, useState } from 'react';
 import AccountCard from "./AccountCard/AccountCard";
 import EditCard from "./EditCard/EditCard";
-import C from 'Build/assets/AddPlatform.CV3egALw';
 
 
 export default function Main() {
@@ -21,11 +20,7 @@ export default function Main() {
     }, [])
 
     useEffect(() => {
-        if (isEditing) setIsEditing(null)
-    }, [CurrentPlatform])
-
-    useEffect(() => {
-        console.log(CurrentPlatform)
+        setIsEditing(null);
     }, [CurrentPlatform])
 
     if (isMounted) {
@@ -35,7 +30,7 @@ export default function Main() {
                     isEditing ? (
                         <EditCard data={isEditing} setIsEditing={setIsEditing} />
                     ) : (
-                        <section className="card-container f-col g-6 oy-auto h-80 relative">
+                        <section className="card-container f-col oy-auto h-80 g-2 relative mt-5">
                             {
                                 CurrentPlatform?.Accounts?.length > 0 ? (
                                     CurrentPlatform.Accounts.map((account, index) => (

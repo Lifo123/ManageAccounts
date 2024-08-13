@@ -61,24 +61,33 @@ export default function EditPlatform() {
 
     const HandleDeletePlatform = () => {
         let newAccounts = deleteAccount(Accounts, CurrentPlatform.id, User.username);
+        if (newAccounts.length === 0) {
+            setIsMounted(false);
+            PlatformStore.set([]);
+        }
+
         saveAccounts(newAccounts, User.username);
         PlatformStore.set(newAccounts);
+
         CurrentPlatformStore.set({ ...newAccounts[0], shouldClearInput: true });
     }
 
     return (
-        <section className='edit-platform f-col g-2'>
-            <div className='f-row f-justify-between'>
-                <input
-                    className='input-def br-6 py-3 px-5'
-                    type="text"
-                    placeholder={CurrentPlatform.Platform || 'Empty'}
-                    value={inputValue}
-                    onChange={HandleEditPlatform}
-                />
+        <section className='edit-platform f-col g-4 oy-auto h-80 relative mt-5 px-4'>
+            <div className='f-col g-2 f-justify-center'>
+                <p className='m-0 fw-800'>Edit Platform:</p>
+                <div className='f-row f-justify-between f-align-center'>
+                    <input
+                        className='input-def br-6 py-3 px-4 fs-2'
+                        type="text"
+                        placeholder={CurrentPlatform.Platform || 'Empty'}
+                        value={inputValue}
+                        onChange={HandleEditPlatform}
+                    />
+                    <span className='btn-red px-3 py-2 d-flex f-center br-4 pointer' onClick={HandleDeletePlatform}>Delete</span>
+                </div>
             </div>
-            <span className='btn-red btn d-flex f-center br-4 mt-4' onClick={HandleDeletePlatform}>Delete Platform</span>
-            <span className='btn-red btn d-flex f-center w-max br-4 mt-5' onClick={LogoutUser}>Log Out</span>
+            <span className='btn-red btn d-flex f-center br-4 mt-4' onClick={LogoutUser}>Log Out</span>
         </section>
     )
 }

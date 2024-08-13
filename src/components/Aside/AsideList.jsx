@@ -1,9 +1,5 @@
 import { useStore } from "@nanostores/react"
 import { CurrentPlatformStore } from "../../Apps/context/Dashboard"
-import { useEffect, useRef, useState } from "react";
-import { updateUsage } from "@services/manageData";
-
-
 
 export default function AsideList({ data }) {
     //GlobalStates
@@ -15,7 +11,7 @@ export default function AsideList({ data }) {
     }
     
     return (
-        <li className={`as-list d-flex p-4 br-6 pointer ${CurrentPlatform.id === data.id ? 'active' : ''}`}
+        <li className={`as-list d-flex py-3 px-4 br-6 pointer ${CurrentPlatform.id === data.id ? 'active' : ''}`}
             onClick={HandleSelectPlatform}
             data-id={data.id}
             data-name={data.Platform}
