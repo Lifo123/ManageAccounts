@@ -1,0 +1,1 @@
+import{d as l,e as n}from"./Hashing.dgYeNg-H.js";import{p as c,g as d,s as r,a as i}from"./json.BquTsvhR.js";const p=a=>c(d("accsUser-"+a)),D=(a,s)=>{let t=p(s),e=c(l(t.data,t.salt));e={...e,Accounts:a};let o=n(r(e),t.salt);return t={...t,data:o},i("accsUser-"+s,r(t)),a},g=(a,s)=>a.filter(e=>e.id!==s);export{g as d,p as g,D as s};
