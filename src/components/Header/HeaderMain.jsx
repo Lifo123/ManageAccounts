@@ -1,39 +1,37 @@
 import './HeaderMain.css'
 import { useStore } from "@nanostores/react"
-import { CurrentPlatformStore, AccountListStore } from "../../Apps/context/Dashboard"
+import { CurrentPlatformStore, PlatformStore } from "../../Apps/context/Dashboard"
 import { saveAccounts } from '@services/manageData';
 import { UserStore } from 'src/context/GlobalStore';
 import SocialIcons from '@Components/Icons/SocialIcons';
 import { useEffect, useState } from 'react';
+import { MaxIndex } from '@utilities/json';
 
 
 export default function HeaderMain({ redirect, isDashboard, }) {
     //GlobalStates
-    const Accounts = useStore(AccountListStore)
+    const Platforms = useStore(PlatformStore)
     const CurrentPlatform = useStore(CurrentPlatformStore);
     const User = useStore(UserStore);
 
-    
+
 
     //States
     const [isMounted, setIsMounted] = useState(false);
 
     //Functions
     const HandleAddCardAccount = () => {
-        let currentIndex = Accounts.findIndex(account => account.id === CurrentPlatform.id);
-        let currentArray = Accounts.splice(currentIndex, 1);
-
-
-        currentArray = {
-            ...currentArray[0], Accounts: [...currentArray[0].Accounts,
-            { user: '', email: '', password: '' }
+        let platformUpdated = {
+            ...CurrentPlatform, Accounts: [...CurrentPlatform.Accounts,
+            { user: User.username, email: '', password: '', id: MaxIndex(CurrentPlatform.Accounts) + 1 }
             ]
-        };
+        }
+        let currentIndex = Platforms.findIndex(account => account.id === CurrentPlatform.id);
+        let updatedPlatform = [...Platforms]
+        updatedPlatform[currentIndex] = platformUpdated;
 
-        Accounts.splice(currentIndex, 0, currentArray);
-
-        AccountListStore.set(saveAccounts(Accounts));
-        CurrentPlatformStore.set(currentArray);
+        PlatformStore.set(saveAccounts(updatedPlatform, User.username));
+        CurrentPlatformStore.set(updatedPlatform[currentIndex]);
 
     }
 
@@ -51,8 +49,8 @@ export default function HeaderMain({ redirect, isDashboard, }) {
                     </span>
                     <h1 className='fs-4'>{CurrentPlatform.Platform}</h1>
                 </div>
-                <div className="f-row f-center g-5">
-                    <p className='fs-2 m-0'>{User?.username}</p>
+                <div className="f-row f-center g-5 mr-2">
+                    <p className='fs-3 fw-800 m-0'>{User?.username}</p>
                     {
                         isDashboard ? <span className="add-btn btn fw-800 br-max pointer" onClick={HandleAddCardAccount}> Add </span> : null
                     }
@@ -66,9 +64,9 @@ export default function HeaderMain({ redirect, isDashboard, }) {
                     </a>
                 </div>
             </section>
-    
+
         )
-    }else{
+    } else {
         return <p>Loading...</p>;
     }
 }

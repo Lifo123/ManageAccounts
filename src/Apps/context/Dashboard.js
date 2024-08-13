@@ -3,7 +3,5 @@ import { atom } from "nanostores";
 
 const isBrowser = typeof window !== "undefined";
 
-export const AccountListStore = atom([]);
-
-
+export const PlatformStore = atom([]);
 export const CurrentPlatformStore = atom([]);

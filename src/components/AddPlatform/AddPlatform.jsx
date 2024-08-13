@@ -1,10 +1,9 @@
 import './AddPlatform.css'
 import { useEffect, useState } from 'react'
-import { getAccounts, saveAccounts } from '@services/manageData'
+import { saveAccounts } from '@services/manageData'
 import { getUserData } from '@services/manageUserData'
-import { AccountListStore, CurrentPlatformStore } from '@Apps/context/Dashboard'
+import { PlatformStore, CurrentPlatformStore } from '@Apps/context/Dashboard'
 import { UserStore } from 'src/context/GlobalStore'
-import { SortByUsage } from '@utilities/SortArray'
 import { MaxIndex, parse } from '@utilities/json'
 import { useStore } from '@nanostores/react'
 import { decrypt } from '@utilities/Hashing'
@@ -20,21 +19,21 @@ export default function AddPlatform() {
 
     //Functions
     const HandleAddPlatform = (e) => {
-        const Accounts = AccountListStore.get()
+        const Accounts = PlatformStore.get()
         const id = MaxIndex(Accounts) + 1;
         
         //Guardar nuevo platform
-        let newAccounts = [...Accounts, {
+        let newAccounts = [{
                 Platform: `New Platform ${id}`,
                 Usage: 0,
                 id: id,
                 Accounts: []
-            }
+            }, ...Accounts
         ]
         
-        AccountListStore.set(newAccounts);
         saveAccounts(newAccounts, User.username);
-
+        PlatformStore.set(newAccounts);
+        CurrentPlatformStore.set(newAccounts[0]);
     }
 
     useEffect(() => {
@@ -42,7 +41,7 @@ export default function AddPlatform() {
         if (isMounted) {
             let UserData = getUserData(User.username);
             let DecryptData = parse(decrypt(UserData.data, UserData.salt))
-            AccountListStore.set(DecryptData.Accounts);
+            PlatformStore.set(DecryptData.Accounts);
             CurrentPlatformStore.set(DecryptData.Accounts[0]);
             
         }

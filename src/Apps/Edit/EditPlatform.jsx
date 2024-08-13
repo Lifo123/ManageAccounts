@@ -2,7 +2,7 @@ import './EditPlatform.css'
 import '@Components/Input/Input.css'
 
 import { useStore } from '@nanostores/react'
-import { CurrentPlatformStore, AccountListStore } from '../context/Dashboard'
+import { CurrentPlatformStore, PlatformStore } from '../context/Dashboard'
 import { useEffect, useState } from 'react';
 import useTimer from '@Hooks/useTimer';
 import { deleteAccount, saveAccounts } from '@services/manageData'
@@ -12,7 +12,7 @@ import { UserStore } from 'src/context/GlobalStore';
 export default function EditPlatform() {
     //GlobalStates
     const CurrentPlatform = useStore(CurrentPlatformStore)
-    const Accounts = useStore(AccountListStore)
+    const Accounts = useStore(PlatformStore)
     const User = useStore(UserStore)
 
     //States
@@ -54,7 +54,7 @@ export default function EditPlatform() {
             account.id === CurrentPlatform.id ? { ...account, Platform: value } : account
         );
 
-        AccountListStore.set(saveAccounts(updatedAccounts, User.username));
+        PlatformStore.set(saveAccounts(updatedAccounts, User.username));
 
 
     }
@@ -62,7 +62,7 @@ export default function EditPlatform() {
     const HandleDeletePlatform = () => {
         let newAccounts = deleteAccount(Accounts, CurrentPlatform.id, User.username);
         saveAccounts(newAccounts, User.username);
-        AccountListStore.set(newAccounts);
+        PlatformStore.set(newAccounts);
         CurrentPlatformStore.set({ ...newAccounts[0], shouldClearInput: true });
     }
 

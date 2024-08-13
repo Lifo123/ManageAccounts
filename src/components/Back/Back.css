@@ -1,0 +1,7 @@
+.back-btn{
+    height: 32px;
+    width: 32px;
+}
+.back-btn svg{
+   fill: var(--f-text);
+}

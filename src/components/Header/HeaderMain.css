@@ -1,5 +1,7 @@
 .main-head{
-    padding: 20px 36px;
+    padding: 20px 0px;
+    border-bottom: solid 1px var(--a-border);
+    margin-top: 4px;
 }
 .main-head h1{
     color: var(--f-tittle);

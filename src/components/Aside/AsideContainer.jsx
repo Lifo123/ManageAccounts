@@ -2,12 +2,12 @@ import './AsideContainer.css'
 
 import AsideList from './AsideList';
 import { useStore } from '@nanostores/react';
-import { AccountListStore } from '../../Apps/context/Dashboard';
+import { PlatformStore } from '../../Apps/context/Dashboard';
 import { useEffect, useState } from 'react';
 
 export default function AsideContainer() {
     //AppStates
-    const Platforms = useStore(AccountListStore);
+    const Platforms = useStore(PlatformStore);
 
     //States
     const [isMounted, setIsMounted] = useState(false);

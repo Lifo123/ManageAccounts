@@ -2,7 +2,7 @@ import './InputSearch.css'
 import { useStore } from '@nanostores/react';
 import useTimer from '../../Hooks/useTimer';
 import { SortArray } from '@utilities/SortArray';
-import { AccountListStore, CurrentPlatformStore } from '../../Apps/context/Dashboard';
+import { PlatformStore, CurrentPlatformStore } from '../../Apps/context/Dashboard';
 import { getAccounts } from '@services/manageData';
 import { UserStore } from 'src/context/GlobalStore';
 import { parse } from '@utilities/json';
@@ -24,7 +24,7 @@ export default function InputSearch() {
         const currentID = CurrentPlatform.id;
         
         const SortedAccounts = await CountDown(() => SortArray(Accounts, String, currentID));
-        AccountListStore.set(SortedAccounts);
+        PlatformStore.set(SortedAccounts);
     }
 
     return (
