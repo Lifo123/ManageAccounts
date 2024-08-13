@@ -1,0 +1,52 @@
+@media(580px > width) {
+    .main-head h1{
+        font-size: var(--font-size-3) !important;
+    }
+    .main-head p{
+        font-size: var(--font-size-2) !important;
+        margin-right: 12px;
+    }
+    .main-head div{
+        gap: var(--spacing-2);
+    }
+    .add-btn{
+        font-size: var(--font-size-1);
+        padding: 8px 20px !important;
+    }
+
+    .container{
+        padding: 0;
+    }
+    .main-app{
+        padding-inline: 16px !important;
+    }
+    .card-div{
+        width: 100%;
+        padding: 0 !important;
+        margin-bottom: var(--spacing-4);
+    }
+}
+
+@media(790px > width) {
+    .container {
+        display: flex;
+        position: relative;
+    }
+    aside{
+        position: absolute;
+        width: 280px !important;
+    }
+}
+
+
+@media(880px > width) {
+    .as-head h3{
+        font-size: var(--font-size-3) !important;
+    }
+    .container {
+        grid-template-columns: 270px minmax(500px, auto) !important;
+    }
+    aside{
+        width: 270px !important;
+    }
+}

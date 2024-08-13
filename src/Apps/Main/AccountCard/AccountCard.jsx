@@ -17,13 +17,13 @@ export default function AccountCard({ data, setIsEditing }) {
                 <p className='m-0'>
                     <strong>Email: </strong>
                     <CopyToClipboard text={data.email}>
-                        <span className='pointer'>{data.email || 'email@gmail.com'}</span>
+                        <span className='copy-text'>{data.email || 'email@gmail.com'}</span>
                     </CopyToClipboard>
                 </p>
                 <p className='m-0'>
                     <strong>Password: </strong>
                     <CopyToClipboard text={data.password}>
-                        <span className='pointer'>{data.password || 'Please use a custom password'}</span>
+                        <span className='copy-text'>{data.password || 'Please use a custom password'}</span>
                     </CopyToClipboard>
                 </p>
             </div>
