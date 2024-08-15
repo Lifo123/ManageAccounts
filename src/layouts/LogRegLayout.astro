@@ -22,7 +22,7 @@ const { type } = Astro.props;
     class="f-col f-center fixed g-5 h-100 w-100 p-2"
     transition:animate="none"
 >
-    <div class="logreg f-col g-2">
+    <div class="logreg f-col g-2 mb-7">
         <span class="text-center">Icons</span>
         <h1 class="text-center p-title my-4">
             Sign {type === "login" ? "in" : "up"} to Manager
@@ -57,6 +57,15 @@ const { type } = Astro.props;
 </main>
 
 <style>
+    @media (580px > width) {
+        .logreg{
+            width: 94% !important;
+            margin-bottom: var(--spacing-7) !important;
+        }
+        form{
+            padding: var(--spacing-4) !important;
+        }
+    }
     .logreg {
         width: 340px;
     }
@@ -67,7 +76,7 @@ const { type } = Astro.props;
         color: var(--f-tittle);
     }
     main {
-        top: 42%;
+        top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
     }
@@ -75,3 +84,4 @@ const { type } = Astro.props;
         margin: 0;
     }
 </style>
+

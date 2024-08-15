@@ -6,6 +6,7 @@ import { UserStore } from 'src/context/GlobalStore';
 import SocialIcons from '@Components/Icons/SocialIcons';
 import { useEffect, useState } from 'react';
 import { MaxIndex } from '@utilities/json';
+import AsideToggle from '@Components/Aside/AsideToggle';
 
 
 export default function HeaderMain({ redirect, isDashboard, }) {
@@ -18,6 +19,7 @@ export default function HeaderMain({ redirect, isDashboard, }) {
 
     //States
     const [isMounted, setIsMounted] = useState(false);
+    const [width, setWidth] = useState();
 
     //Functions
     const HandleAddCardAccount = () => {
@@ -38,15 +40,28 @@ export default function HeaderMain({ redirect, isDashboard, }) {
     //Effects
     useEffect(() => {
         setIsMounted(true);
-    }, []);
+        const handleResize = () => setWidth(window.innerWidth);
+
+        window.addEventListener('resize', handleResize);
+
+        // Cleanup event listener on component unmount
+        return () => window.removeEventListener('resize', handleResize);
+    }, [])
 
     if (isMounted) {
         return (
             <section className="main-head f-row f-justify-between f-align-center">
-                <div className="f-row f-center g-6">
-                    <span>
-                        <SocialIcons id={CurrentPlatform.Platform} />
-                    </span>
+                <div className="mh-lef f-row f-center g-6">
+                    {
+                        width > 790 ? (
+                            <span className='social-icon'>
+                                <SocialIcons id={CurrentPlatform.Platform} />
+                            </span>
+                        ) : (
+                            <AsideToggle />
+                        )
+                    }
+
                     <h1 className='fs-4'>{CurrentPlatform.Platform}</h1>
                 </div>
                 <div className="f-row f-center g-5 mr-2">

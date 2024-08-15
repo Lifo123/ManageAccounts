@@ -15,7 +15,14 @@ import Button from "@Apps/LogReg/Button";
         <Button type="register" slot="logreg-button" client:visible/>
         <p class="f-row g-2 fs-1 f-center m-0" slot="logreg-footer">
             Already have an account?
-            <a href={`/ManageAccounts/Login`} class="link-text">Sign in</a>
+            <a href={`/ManageAccounts/Login`} class="text-blue">Sign in</a>
         </p>
     </LogRegLayout>
 </Layout>
+
+<style>
+    a:hover{
+        text-decoration: underline;
+        text-underline-offset: 4px;
+    }
+</style>

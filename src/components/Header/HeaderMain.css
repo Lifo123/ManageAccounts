@@ -31,3 +31,10 @@
     fill: var(--f-tittle);
     stroke: var(--f-tittle);
 }
+
+@media(790px > width) {
+    .social-icon{
+       pointer-events: none;
+       opacity: 0;
+    }
+}

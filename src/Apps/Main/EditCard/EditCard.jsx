@@ -5,6 +5,7 @@ import { UserStore } from 'src/context/GlobalStore';
 import { CurrentPlatformStore, PlatformStore } from '@Apps/context/Dashboard';
 import Back from '@Components/Back/Back';
 import Input from '@Components/Input/Input';
+import { saveAccounts } from '@services/manageData';
 
 export default function EditCard({ data, setIsEditing }) {
     //GlobalStates
@@ -18,22 +19,37 @@ export default function EditCard({ data, setIsEditing }) {
 
     //Functions
     const HandleSaveAccount = () => {
-        GetDataInputs();
-
-
-
+        let newData = GetDataInputs();
         let AccountUpdated = {
-            ...data, user: data.user, email: data.email.trim(), password: data.password.trim()
-        }
-        console.log(AccountUpdated);
+            ...data, 
+            user: newData.user || data.user, 
+            email: newData.email.trim() || data.email, 
+            password: newData.password.trim() || data.password
+        };
+        let AccountsUpdated = CurrentPlatform.Accounts.map(account =>
+            account.id === data.id ? AccountUpdated : account
+        );
+
+        let PlatformUpdated = { ...CurrentPlatform, Accounts: AccountsUpdated };
+        let PlatformsUpdated = Platforms.map(platform =>
+            platform.id === CurrentPlatform.id ? PlatformUpdated : platform
+        );
+
+        saveAccounts(PlatformsUpdated, User.username);
+        PlatformStore.set(PlatformsUpdated);
+        CurrentPlatformStore.set(PlatformsUpdated[0]);
+
 
     }
 
     const GetDataInputs = () => {
         let user = document.querySelector('[name="e-user"]').value;
-        if (!user) {
-            setMsg('Username is required');
-        }
+        let email = document.querySelector('[name="email"]').value
+        let password = document.querySelector('[name="password"]').value;
+
+        return { user, email, password }
+
+
     }
 
 
@@ -50,12 +66,12 @@ export default function EditCard({ data, setIsEditing }) {
                 </li>
                 <li className='f-col g-2'>
                     <p className='fw-800 m-0 px-1'>Email:</p>
-                    <Input text={data.email || 'email@gmail.com'} value={data.email} name={'e-email'} />
+                    <Input text={data.email || 'email@gmail.com'} value={data.email} name={'email'} type='email' />
                 </li>
                 <li className='f-col g-2'>
                     <p className='fw-800 m-0 px-1'>Password:</p>
                     <div className='pass-grid d-grid g-2'>
-                        <Input text={data.password || 'Custom Password is more secure'} value={data.password} name={'e-password'} />
+                        <Input text={data.password || 'Password'} value={data.password} name={'password'} />
                         <span className='d-flex f-center pointer'>V</span>
                     </div>
                 </li>

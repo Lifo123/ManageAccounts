@@ -57,3 +57,11 @@ textarea {
 .input-fill~span {
     right: 16px;
 }
+
+.aside-icon{
+    height: 28px;
+    width: 28px;
+}
+.aside-icon svg {
+    stroke: var(--f-tittle);
+}

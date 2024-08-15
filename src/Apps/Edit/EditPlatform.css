@@ -1,0 +1,12 @@
+@media (580px > width) {
+    .edit-platform {
+        width: 96% !important;
+        padding: 0 !important;
+    }
+    form {
+        padding: var(--spacing-4) !important;
+    }
+    .input-def{
+        width: 56% !important;
+    }
+}
