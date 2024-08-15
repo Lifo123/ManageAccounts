@@ -6,7 +6,12 @@
 .main-head h1{
     color: var(--f-tittle);
 }
-
+.main-input{
+    background-color: var(--f-bg-bento);
+}
+.main-input::placeholder{
+    color: var(--f-tittle);
+}
 .add-btn{
     background-color: var(--f-text);
     color: var(--f-bg);

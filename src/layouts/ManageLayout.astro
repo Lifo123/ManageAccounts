@@ -1,15 +1,15 @@
 ---
 import '@assets/css/MediaQuerys.css'
+import Aside from "@Components/Aside/Aside.astro";
+import Header from "@Components/Header/Header.astro";
+
 import AddPlatform from "@Components/AddPlatform/AddPlatform";
 import InputSearch from "@Components/InputSearch/InputSearch";
-import AsideContainer from "@Components/Aside/AsideContainer";
-import HeaderMain from "@Components/Header/HeaderMain";
 import AsideToggle from "@Components/Aside/AsideToggle";
 
-const { redirect, isDashboard } = Astro.props;
 ---
 
-<script type="module" is:inline>
+<script is:inline>
     let currentToken = JSON.parse(localStorage.getItem("accsToken"));
     if (!currentToken) {
         window.location.replace("/ManageAccounts/Login");
@@ -24,26 +24,21 @@ const { redirect, isDashboard } = Astro.props;
 
 <div class="container d-grid p-2 g-2 relative h-100 o-hidden">
     <aside class="aside-app bg-bento br-8 f-col">
-        <section class="as-head f-col h-max">
-            <div class="f-row f-justify-between f-align-center h-max">
+        <section class="as-head f-col h-max mb-4">
+            <div class="f-row f-justify-between f-align-center h-max ">
                 <div class="f-row f-center g-4 ml-1">
                     <AsideToggle client:media="(790px > width)" />
-                    <h3>Your Accounts</h3>
+                    <h3>Social Platforms</h3>
                 </div>
                 <AddPlatform transition:persist client:load />
             </div>
-            <InputSearch transition:persist client:idle />
         </section>
-        <AsideContainer slot="aside-list" transition:persist client:idle />
+        <InputSearch transition:persist client:idle />
+        <Aside slot="aside-list"/>
     </aside>
     <main class="main-app bg-bento f-col br-8 w-auto relative">
-        <HeaderMain
-            transition:persist
-            client:idle
-            redirect={redirect}
-            isDashboard={isDashboard}
-        />
-        <slot />
+        <Header/>
+        <slot />    
     </main>
 </div>
 
@@ -68,7 +63,7 @@ const { redirect, isDashboard } = Astro.props;
     }
     .as-head {
         border-bottom: solid 1px var(--a-border);
-        padding: 26px 5px 30px 5px;
+        padding: 25px 5px;
         gap: 26px;
     }
 </style>

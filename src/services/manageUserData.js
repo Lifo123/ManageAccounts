@@ -43,7 +43,7 @@ export const registerUser = (username, pass) => {
         password: hash,
         customPass: [],
         Accounts: [{
-            Platform: `New Platform`,
+            Platform: `Gmail`,
             Usage: 0,
             id: 1,
             Accounts: []

@@ -1,3 +1,5 @@
+import { CurrentPlatformStore } from "@Apps/context/Dashboard";
+import { useStore } from "@nanostores/react";
 
 const Icons = {
     Twitter: 'Twitter',
@@ -9,15 +11,18 @@ const Icons = {
     Facebook: 'facebook',
     Whatsapp: 'whatsapp',
     Artstation: 'artstation',
+    Youtube: 'youtube',
     none: 'none',
 
 }
 
-export default function SocialIcons({ id }) {
+export default function SocialIcons() {
+    //GlobalStates
+    const CurrentPlatform = useStore(CurrentPlatformStore);
 
     return (
         <span className="main-head-icon d-flex f-center">
-            {Icons[id] ? Icons[id] : 'none'}
+            {Icons[CurrentPlatform.Platform] ? Icons[CurrentPlatform.Platform] : 'none'}
         </span>
     )
 }

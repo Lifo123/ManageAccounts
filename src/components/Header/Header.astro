@@ -1,0 +1,22 @@
+---
+import './HeaderMain.css'
+
+import SocialIcons from "@Components/Icons/SocialIcons";
+import HeaderInput from "./HeaderInput";
+import HeaderAdd from './HeaderAdd';
+
+---
+
+<>
+    <section class="main-head f-row f-justify-between f-align-center">
+        <div class="mh-lef f-row f-center g-4">
+            <span class="social-icon">
+                <SocialIcons client:only="react"/>
+            </span>
+            <HeaderInput client:idle/>
+        </div>
+        <div class="f-row f-center g-5 mr-2">
+            <HeaderAdd client:idle/>
+        </div>
+    </section>
+</>
