@@ -16,15 +16,11 @@ export default function AccountCard({ data, setIsEditing }) {
             <div className={`card-account f-col br-10`}>
                 <p className='m-0'>
                     <strong>Email: </strong>
-                    <CopyToClipboard text={data.email}>
-                        <span className='copy-text'>{data.email || 'email@gmail.com'}</span>
-                    </CopyToClipboard>
+                    {data.email || 'email@gmail.com'}
                 </p>
                 <p className='m-0'>
                     <strong>Password: </strong>
-                    <CopyToClipboard text={data.password}>
-                        <span className='copy-text'>{data.password || 'Please use a custom password'}</span>
-                    </CopyToClipboard>
+                    {data.password || 'Please use a custom password'}
                 </p>
             </div>
         </div>
