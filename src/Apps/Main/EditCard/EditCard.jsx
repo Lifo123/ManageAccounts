@@ -37,8 +37,7 @@ export default function EditCard({ data, setIsEditing }) {
 
         saveAccounts(PlatformsUpdated, User.username);
         PlatformStore.set(PlatformsUpdated);
-        CurrentPlatformStore.set(PlatformsUpdated[0]);
-
+        CurrentPlatformStore.set(PlatformUpdated[0]);
 
     }
 

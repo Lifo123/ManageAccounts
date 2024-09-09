@@ -20,7 +20,7 @@ export default function AsideContainer() {
 
     if (isMounted) {
         return (
-            <ul className='aside-cont f-col g-2 o-hidden relative'>
+            <ul className='aside-cont f-col g-2 o-hidden relative mt-4'>
                 {Object.keys(Platforms).map(platformName => {
                     const data = {Platform: platformName, ...Platforms[platformName]}
                     return (
