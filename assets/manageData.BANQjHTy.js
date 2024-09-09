@@ -1,0 +1,1 @@
+import{p as e,g as o,d as l,e as p,s as c,b as d}from"./json.CoBIUwH2.js";import{a as i}from"./Dashboard.BEvcDa-9.js";const u=typeof window<"u",m=i(u?e(o("accsToken")):null),y=t=>e(o("accsUser-"+t)),D=(t,r)=>{let s=y(r),a=e(l(s.data,s.salt));a={...a,Accounts:t};let n=p(c(a),s.salt);return s={...s,data:n},d("accsUser-"+r,c(s)),t};export{m as U,y as g,D as s};
