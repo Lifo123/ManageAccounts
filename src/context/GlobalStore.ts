@@ -7,5 +7,5 @@ export const userInitial = {
     user: null,
 }
 
-export const DarkModeStore = atom(false);
+export const ConfigStore = atom(isBrowser ? JSON.parse(localStorage.getItem('F-Config') || '{}') : {});
 export const UserStore = atom(isBrowser ? JSON.parse(localStorage.getItem('F-User') || '{}') : null);

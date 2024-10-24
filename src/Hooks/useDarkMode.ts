@@ -1,18 +1,16 @@
-import { DarkModeStore } from "@Context/GlobalStore";
+import { ConfigStore } from "@Context/GlobalStore";
 
 export default function useDarkMode() {
-
-    const getInitialState = () => {
-        const storedState = localStorage.getItem("DMstate");
-        return storedState ? storedState === "true" : DarkModeStore.get();
-    };
+    //Store
+    const Config = ConfigStore.get();
 
 
     const Toggle = () => {
-        let isDark = getInitialState();
+        let config = JSON.parse(localStorage.getItem("F-Config") || '{}');
 
-        localStorage.setItem("DMstate", `${!isDark}`);
-        return !isDark;
+        config.DarkMode = !Config.DarkMode;
+        ConfigStore.set(config);
+        localStorage.setItem('F-Config', JSON.stringify(config));
     }
 
     const setDark = () => {
@@ -34,7 +32,6 @@ export default function useDarkMode() {
         Toggle,
         setDark,
         setLight,
-        setSystem,
-        getInitialState
+        setSystem
     }
 }

@@ -1,0 +1,7 @@
+*{
+    color: var(--f-text);
+}
+
+.toaster{
+    color: inherit !important;
+}

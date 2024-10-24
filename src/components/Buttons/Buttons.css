@@ -17,7 +17,7 @@
 }
 
 .btn-circle{
-    background-color: var(--f-bg-bento);
+    background-color: #fff;
     height: 14px;
     aspect-ratio: 1/1;
     left: 4px;

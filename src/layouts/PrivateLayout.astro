@@ -21,9 +21,9 @@ const { title, description } = Astro?.props;
 <Layout title={title} description={description}>
     <Toaster
         client:only="react"
-        richColors
         position="top-center"
         visibleToasts={1}
+        className="toaster"
     />
     <slot />
 </Layout>

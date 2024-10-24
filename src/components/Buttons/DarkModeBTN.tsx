@@ -1,32 +1,28 @@
 import './Buttons.css'
-import useDarkMode from '@Hooks/useDarkMode.ts';
+
 import ToggleBTN from './ToggleBTN.js'
 import { useStore } from '@nanostores/react';
-import { DarkModeStore } from '@Context/GlobalStore.ts';
+import { ConfigStore } from '@Context/GlobalStore.ts';
 import { useEffect } from 'react';
+import useDarkMode from 'src/Hooks/useDarkMode.js';
 
 const DarkModeBTN = () => {
     //DarkMode Store
-    const isDark = useStore(DarkModeStore);
+    const Config = useStore(ConfigStore);
 
     //Hooks
     const DM = useDarkMode();
 
-    const Toggle = () => {
-        const isDarkResult = DM.Toggle();
-        DarkModeStore.set(isDarkResult);
-    }
-
     useEffect(() => {
-        if (isDark) {
+        if (Config.DarkMode) {
             document.body.classList.add("DarkMode");
         } else {
             document.body.classList.remove("DarkMode");
         }
-    }, [isDark])
+    }, [Config.DarkMode])
 
     return (
-        <ToggleBTN funct={Toggle} initial={isDark} />
+        <ToggleBTN funct={DM.Toggle} initial={Config.DarkMode} />
     )
 }
 

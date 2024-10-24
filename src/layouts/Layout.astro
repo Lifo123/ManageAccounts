@@ -72,7 +72,7 @@ const url = new URL(path, site).href;
 	</body>
 	<script is:inline>
 		let config = JSON.parse(localStorage.getItem("F-Config"));
-		if (config?.DMstate) {
+		if (config?.DarkMode) {
 			document.body.classList.add("DarkMode");
 		} else {
 			document.body.classList.remove("DarkMode");
