@@ -1,0 +1,29 @@
+.primary-btn{
+    background-color: var(--f-text-blue);
+    color: var(--f-bg-bento);
+    padding: 12px 24px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-togle{
+    width: 34px;
+    height: 20px;
+    background-color: var(--f-placeholder);
+    scale: 1.1;
+}
+.btn-togle.active{
+    background-color: var(--f-text-blue);
+}
+
+.btn-circle{
+    background-color: var(--f-bg-bento);
+    height: 14px;
+    aspect-ratio: 1/1;
+    left: 4px;
+    transition: left .1s;
+}
+
+.btn-circle.active{
+    left: 17px;
+}

@@ -1,0 +1,49 @@
+---
+import { Toaster } from "sonner";
+import Layout from "./Layout.astro";
+import Header from "@Components/Header.astro";
+
+interface Props {
+    title: string;
+    description: string;
+    header?: {
+        logo?: { href: string; txt: string };
+        centerCont?: JSX.Element;
+        rightCont?: JSX.Element;
+        isLog: boolean;
+    };
+    ishead?: boolean;
+}
+
+const { title, description, header, ishead } = Astro?.props;
+---
+
+<script is:inline>
+    let user;
+    if (typeof window !== "undefined") {
+        user = JSON.parse(localStorage.getItem("F-User"));
+        if (!user) {
+            window.location.href = "/ManageAccounts/Login";
+        }
+    }
+</script>
+
+<Layout title={title} description={description}>
+    <Toaster
+        client:only="react"
+        richColors
+        position="top-center"
+        visibleToasts={1}
+    />
+    {
+        ishead ? (
+            <Header
+                logo={{
+                    href: header?.logo?.href || "/Games/",
+                    txt: header?.logo?.txt || "LIFO",
+                }}
+            />
+        ) : null
+    }
+    <slot />
+</Layout>

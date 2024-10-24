@@ -1,0 +1,26 @@
+---
+import LogRegBTN from "@Components/Buttons/LogRegBTN";
+import Layout from "@Layouts/Layout.astro";
+import LogRegLayout from "@Layouts/LogRegLayout.astro";
+
+
+---
+
+
+<Layout title="Register" description="Register Page">
+    <LogRegLayout>
+        <main class="logreg-container f-col g-4 mx-auto f-align-center fixed br-8 py-4 px-2">
+            <h2 class="fs-6">Sing Up</h2>
+            <form class="form-logreg f-col mx-auto w-80 px-2">
+                <div class="f-col g-3 mx-auto w-100">
+                    <input type="text" name="username" data-place="username" />
+                    <input type="password" name="password" data-place="password"/>
+                    <input type="password" name="password1" data-place="password"/>
+                   
+                </div>
+                <LogRegBTN mode="register" client:only="react" />
+                <p class="mt-2 text-center">Already have an account? <a href="/ManageAccounts/Login">Sign In</a></p>
+            </form>
+        </main>
+    </LogRegLayout>
+</Layout>

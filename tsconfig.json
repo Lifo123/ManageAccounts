@@ -1,0 +1,23 @@
+{
+  "extends": "astro/tsconfigs/base",
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "**/*.spec.ts"],
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "jsxImportSource": "react",
+    "baseUrl": ".",
+    "paths": {
+      "@Components/*": ["src/components/*"],
+      "@Hooks/*": ["src/hooks/*"],
+      "@Apps/*": ["src/apps/*"],
+      "@Services/*": ["src/services/*"],
+      "@Utilities/*": ["src/utilities/*"],
+      "@Layouts/*": ["src/layouts/*"],
+      "@Assets/*": ["src/assets/*"],
+      "@Context/*": ["src/context/*"],
+      "@Pages/*": ["src/pages/*"]
+    },
+    "strict": true,
+    "skipLibCheck": true
+  }
+}

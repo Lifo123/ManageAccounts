@@ -1,0 +1,30 @@
+.logreg-container {
+    height: max-content;
+    width: min(80vw, 400px);
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 1px 2px 10px #00000027;
+}
+
+.logreg-btn{
+    padding: 13px 26px;
+    background-color: var(--f-text-blue);
+    color: #fff;
+}
+
+.form-logreg input[type="text"],
+.form-logreg input[type="password"] {
+    outline: solid 1px var(--f-placeholder);
+    border: none;
+    border-radius: 4px;
+    padding: 13px 18px;
+    font-size: 17px;
+    width: 100%;
+}
+
+.form-logreg a{
+    color: var(--f-text-blue);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
