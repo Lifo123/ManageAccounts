@@ -1,44 +1,23 @@
 ---
-import User from "./User/User";
-
-interface Props {
-    logo?: { href: string; txt: string };
-    centerCont?: string;
-}
-
-const { logo, centerCont } = Astro.props;
+import AddAccountBTN from "@Apps/Manage/components/AddAccountBTN";
 ---
 
-<header
-    class="header relative f-row f-justify-between f-align-center mx-auto relative"
->
-    <h2 class="fs-5 fw-700">
-        <a href={logo?.href || "/Games/"}>{logo?.txt || "LIFO"}</a>
-    </h2>
-    {centerCont ? <h3 class="fs-4 fw-700 absolute">{centerCont}</h3> : null}
-    <User client:only="react" />
+<header class="f-row f-justify-between f-align-center w-100 mb-3 px-4">
+    <h2 class="fs-4 fw-700" id="h-manage-social">SocialName</h2>
+    <div class="f-row g-2 f-center br-max">
+        <p class="user-name m-0 fs-3 fw-600" id="h-user-name">Username</p>
+        <AddAccountBTN client:only="react" />
+    </div>
 </header>
 
-<style is:inline>
-    h2 {
-        color: #000;
+<script is:inline type="module">
+    if (globalUser) {
+        document.querySelector("#h-user-name").innerHTML = globalUser.user;
     }
-    h3 {
-        left: 50%;
-        transform: translateX(-50%);
-    }
-    a {
-        color: #000;
-    }
-    .header {
-        height: 66px;
-        border-bottom: solid 1px #e5e5e5;
-        padding-inline: 3rem;
-    }
+</script>
 
-    @media (500px > width) {
-        .header {
-            width: 100% !important;
-        }
+<style is:inline>
+    header {
+        height: 45px;
     }
 </style>

@@ -1,7 +1,6 @@
 ---
 import "@Assets/css/Global.css";
 
-
 interface Props {
 	title: string;
 	description: string;
@@ -68,10 +67,9 @@ const url = new URL(path, site).href;
 			href="https://cdn.jsdelivr.net/gh/Lifo123/FlifoCSS@main/src/output/Flifo.css"
 		/>
 	</head>
-	<body>
+	<body class="f-col">
 		<slot />
 	</body>
-
 	<script is:inline>
 		let config = JSON.parse(localStorage.getItem("F-Config"));
 		if (config?.DMstate) {

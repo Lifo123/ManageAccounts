@@ -33,9 +33,7 @@ const createUser = async (userId: string, hashPass: string, salt: string) => {
                 default: hashPass
             },
             accounts: {
-                acc1: {
-                    username: userId
-                }
+                default: [{ username: userId, name: userId, pass: hashPass, createAt: currentTime }]
             }
         }
 
@@ -50,6 +48,7 @@ const createUser = async (userId: string, hashPass: string, salt: string) => {
         console.log(e);
         return 'error';
     }
+
 }
 
 const validateUser = async (userId: string, password: string) => {

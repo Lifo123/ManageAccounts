@@ -1,8 +1,32 @@
 ---
+import "@Assets/css/Manage.css";
 import PrivateLayout from "@Layouts/PrivateLayout.astro";
-
+import Aside from "@Apps/Manage/components/Aside";
+import Main from "@Apps/Manage/components/Main";
+import AddPlatformBTN from "@Apps/Manage/components/AddPlatformBTN";
+import Header from "@Components/Header.astro";
 ---
 
-<PrivateLayout title="" description="" >
-    hola
+<PrivateLayout title="Dashboard" description="Manage your social accounts completely">
+    <main class="main o-hidden f-row g-2">
+        <aside class="m-aside bento h-100 f-col">
+            <div class="f-col g-2 mb-3">
+                <span class="f-row f-justify-between f-align-center p-1">
+                    <h3>Social Platforms</h3>
+                    <AddPlatformBTN client:only="react" className="mr-2" />
+                </span>
+                <input
+                    class="w-100 br-6 fs-2"
+                    type="text"
+                    placeholder="Social platform"
+                    id="aside-search"
+                />
+            </div>
+            <Aside client:only="react" />
+        </aside>
+        <section class="m-main bento h-100 f-col">
+            <Header />
+            <Main client:only="react" />
+        </section>
+    </main>
 </PrivateLayout>

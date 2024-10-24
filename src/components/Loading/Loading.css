@@ -1,0 +1,47 @@
+.load-bg{
+    border: solid 1px var(--f-bg-bento-intense);
+    background-color: var(--f-bg-bento);
+    flex: 1;
+}
+.load-circle svg {
+    height: 150px;
+    width: 150px;
+    animation: Spin 1s linear infinite;
+    overflow: visible;
+}
+
+.load-circle svg circle {
+    height: 100%;
+    width: 100%;
+    transform: translate(5px, 5px);
+    fill: none;
+    stroke: #3498db;
+    stroke-linecap: round;
+    stroke-dashoffset: 440;
+    stroke-dasharray: 440;
+    stroke-width: 6px;
+    animation: Circle-width 3s linear infinite;
+}
+
+@keyframes Spin {
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes Circle-width {
+    0%, 100% {
+        stroke-dashoffset: 440;
+    }
+
+    50% {
+        stroke-dashoffset: 0;
+    }
+
+    50.2% {
+        stroke-dashoffset: 880;
+    }
+}

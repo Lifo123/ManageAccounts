@@ -1,0 +1,56 @@
+* {
+    font-family: Miriam Libre, Inter, sans serif;
+}
+
+body {
+    height: 100vh;
+    width: 100%;
+    padding: 0.7rem;
+}
+
+#aside-search {
+    border: solid 1px var(--f-text);
+    padding: 13px 15px;
+}
+
+.icon-btn svg {
+    stroke: var(--f-text);
+}
+
+.add-btn {
+    background-color: var(--f-tittle);
+    color: var(--f-bg)
+}
+
+.main {
+    height: 100%;
+}
+
+.bento {
+    border: solid 1px var(--f-placeholder);
+    border-radius: 10px;
+    background-color: var(--f-bg-bento);
+    padding: .7rem;
+    overflow: hidden;
+}
+
+.m-aside {
+    min-width: 220px;
+    width: 320px;
+}
+
+.aside-options{
+    border: solid 1px var(--f-text);
+}
+
+.m-main {
+    flex-grow: 1;
+    min-width: 450px;
+}
+
+.card-account {
+    border: solid 1px var(--f-text);
+}
+.card-account p{
+    margin: 0;
+}
