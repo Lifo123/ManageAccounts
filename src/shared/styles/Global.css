@@ -1,0 +1,7 @@
+@import "tailwindcss";
+
+@import './Flifo.css';
+
+html{
+    background-color: var(--color-gray-1);
+}
