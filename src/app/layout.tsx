@@ -1,6 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import localFont from 'next/font/local';
 import ThemeProvider from "@Shared/components/theme-provider";
+
+import { Analytics } from "@vercel/analytics/next"
 import '@Shared/styles/Global.css';
 
 
@@ -65,6 +67,7 @@ export default function RootLayout({
             background: `linear-gradient(to bottom, var(--color-info-a2), transparent)`,
           }}></div>
         </ThemeProvider>
+        <Analytics />
       </body>
     </html >
   );
