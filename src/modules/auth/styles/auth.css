@@ -1,0 +1,15 @@
+input {
+  outline: 0 solid #0000;
+  transition: outline .1s;
+}
+
+input:focus-within {
+  outline: 2px solid dodgerblue;
+  outline-offset: 2px;
+}
+
+a:focus-visible{
+  outline: none;
+  text-decoration: underline;
+  color: dodgerblue;
+}

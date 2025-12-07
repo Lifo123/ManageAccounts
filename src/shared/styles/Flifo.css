@@ -73,7 +73,7 @@
   --color-gray-1: hsl(270, 4%, 6%); 
   --color-gray-2: hsl(260, 4%, 8%);
   
-  --color-gray-3: hsl(240, 5%, 13%); 
+  --color-gray-3: hsl(240, 5%, 12%); 
   --color-gray-4: hsl(232, 6%, 16%); 
   --color-gray-5: hsl(228, 7%, 22%); 
 
@@ -977,8 +977,8 @@ button[data-focus-visible] {
 }
 @layer components {
     .skeleton {
-        animation: pulse 1s infinite;
-        background-color: var(--color-gray-6);
+        animation: pulse 1.5s infinite;
+        background-color: var(--color-gray-3);
         border-radius: var(--radius-sm);
         height: var(--spacing);
         width: 100%;

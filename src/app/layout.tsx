@@ -13,8 +13,8 @@ const geist = localFont({
 
 export const metadata: Metadata = {
   title: {
-    template: "Template | %s",
-    default: "Template",
+    template: "Accounter - %s",
+    default: "Accounter",
   },
   description: 'description for template',
 
@@ -50,7 +50,7 @@ export default function RootLayout({
 
 
   return (
-    <html lang="es" suppressHydrationWarning>
+    <html lang="es" suppressHydrationWarning data-scroll-behavior="smooth">
       <body className={`text-gray-12 antialiased f-col relative ${geist.variable}`}>
         <ThemeProvider
           attribute="class"

@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@lifo123/library':
-        specifier: ^1.8.5
-        version: 1.8.5(@react-aria/utils@3.31.0(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(@types/node@20.19.25)(jiti@2.6.1)(lightningcss@1.30.2)(prettier@3.7.4)(react-aria-components@1.13.0(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(react-aria@3.44.0(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react-stately@3.42.0(react@19.2.0))(react@19.2.0)(rollup@4.53.3)(typescript@5.9.3)(yaml@2.8.2)
+        specifier: ^1.8.6
+        version: 1.8.6(@react-aria/utils@3.31.0(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(@types/node@20.19.25)(jiti@2.6.1)(lightningcss@1.30.2)(prettier@3.7.4)(react-aria-components@1.13.0(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(react-aria@3.44.0(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react-stately@3.42.0(react@19.2.0))(react@19.2.0)(rollup@4.53.3)(typescript@5.9.3)(yaml@2.8.2)
       '@nanostores/deepmap':
         specifier: ^0.0.1
         version: 0.0.1(nanostores@0.11.4)
@@ -29,6 +29,9 @@ importers:
       react:
         specifier: 19.2.0
         version: 19.2.0
+      react-aria:
+        specifier: ^3.44.0
+        version: 3.44.0(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       react-dom:
         specifier: 19.2.0
         version: 19.2.0(react@19.2.0)
@@ -630,8 +633,8 @@ packages:
   '@jridgewell/trace-mapping@0.3.31':
     resolution: {integrity: sha512-zzNR+SdQSDJzc8joaeP8QQoCQr8NuYx2dIIytl1QeBEZHJ9uW6hebsrYgbz8hJwUQao3TWCMtmfV8Nu1twOLAw==, tarball: https://registry.npmjs.org/@jridgewell/trace-mapping/-/trace-mapping-0.3.31.tgz}
 
-  '@lifo123/library@1.8.5':
-    resolution: {integrity: sha512-oHWG7bV80B9GUmDHajspTdDb1k3h9g3HwKOVc56eVlYApfdAksRr8N5HFSsLgFsSShfg9ZujFPULcBI+u0fYpQ==, tarball: https://registry.npmjs.org/@lifo123/library/-/library-1.8.5.tgz}
+  '@lifo123/library@1.8.6':
+    resolution: {integrity: sha512-Tz7NgCjOE7ID1wUs4y8toHaPD4IlRwDqmPwgIkvFQOccrpy0iVOK23XU4q4iN4eH+/B/3NfZRZV27WZ4AonPFA==, tarball: https://registry.npmjs.org/@lifo123/library/-/library-1.8.6.tgz}
     engines: {node: '>=20.0.0'}
     peerDependencies:
       '@react-aria/utils': ^3.31.0
@@ -4914,7 +4917,7 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.5
 
-  '@lifo123/library@1.8.5(@react-aria/utils@3.31.0(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(@types/node@20.19.25)(jiti@2.6.1)(lightningcss@1.30.2)(prettier@3.7.4)(react-aria-components@1.13.0(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(react-aria@3.44.0(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react-stately@3.42.0(react@19.2.0))(react@19.2.0)(rollup@4.53.3)(typescript@5.9.3)(yaml@2.8.2)':
+  '@lifo123/library@1.8.6(@react-aria/utils@3.31.0(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(@types/node@20.19.25)(jiti@2.6.1)(lightningcss@1.30.2)(prettier@3.7.4)(react-aria-components@1.13.0(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(react-aria@3.44.0(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react-stately@3.42.0(react@19.2.0))(react@19.2.0)(rollup@4.53.3)(typescript@5.9.3)(yaml@2.8.2)':
     dependencies:
       '@nanostores/deepmap': 0.0.1(nanostores@1.1.0)
       '@nanostores/react': 1.0.0(nanostores@1.1.0)(react@19.2.0)
