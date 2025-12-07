@@ -20,11 +20,11 @@
     ],
     "baseUrl": ".",
     "paths": {
-      "@Assets/*": ["src/assets/*"],
-      "@Modules/*": ["src/modules/*"],
-      "@Shared/*": ["src/shared/*"],
-      "@Layouts/*": ["src/layouts/*"],
-      "@Pages/*": ["src/pages/*"],
+      "@Assets/*": ["./src/assets/*"],
+      "@Modules/*": ["./src/modules/*"],
+      "@Shared/*": ["./src/shared/*"],
+      "@Layouts/*": ["./src/layouts/*"],
+      "@Pages/*": ["./src/pages/*"],
     }
   },
   "include": [
