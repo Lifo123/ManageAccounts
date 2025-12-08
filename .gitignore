@@ -9,11 +9,7 @@
 !.yarn/plugins
 !.yarn/releases
 !.yarn/versions
-API
-API/functions
 test
-
-src/modules/auth/components/AuthGuard.tsx
 
 # testing
 /coverage
